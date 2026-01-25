@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <mask id="bamboo-mask">
+      <circle cx="256" cy="256" r="232" fill="white"/>
+      <path fill="black" d="M280.96 494.08h-16a237.76 237.76 0 01-50.56-5.44L232 386.88l47.36-7.36zm-5.44-124.16l-8.32-172.8-37.44 9.92 2.88 173.12zM218.24 47.36l9.6 144.64 39.04-5.12-1.92-131.2zm64 272.64l58.56-44.16 58.24-64-89.28 40.32zm-64-154.56l-13.76-18.88-48.32-6.08 23.36 24.96z"/>
+    </mask>
+  </defs>
+  <circle cx="256" cy="256" r="232" fill="currentColor" mask="url(#bamboo-mask)"/>
+</svg>
