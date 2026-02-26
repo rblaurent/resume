@@ -290,6 +290,48 @@
             color: #ccc;
         }
 
+        .project-category {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #fff;
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(4px);
+            padding: 4px 10px;
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .project-category svg {
+            width: 11px;
+            height: 11px;
+        }
+
+        .project-image-wrap {
+            position: relative;
+        }
+
+        .project-private {
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            color: #666;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .project-private svg {
+            width: 13px;
+            height: 13px;
+        }
+
         .project-link svg {
             width: 15px;
             height: 15px;
@@ -315,7 +357,7 @@
                 <img src="profile.jpg" alt="Laurent Bécherel" class="profile-pic">
                 <div class="header-content">
                     <h1>Laurent Bécherel</h1>
-                    <div class="title" data-i18n="side_projects">Side Projects</div>
+                    <div class="title" data-i18n="side_projects">Portfolio</div>
                     <div class="contact-header">
                         <a href="mailto:becherel.laurent@gmail.com" class="contact-icon" title="becherel.laurent@gmail.com">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M61.4 64C27.5 64 0 91.5 0 125.4 0 126.3 0 127.1 .1 128L0 128 0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-256-.1 0c0-.9 .1-1.7 .1-2.6 0-33.9-27.5-61.4-61.4-61.4L61.4 64zM464 192.3L464 384c0 8.8-7.2 16-16 16L64 400c-8.8 0-16-7.2-16-16l0-191.7 154.8 117.4c31.4 23.9 74.9 23.9 106.4 0L464 192.3zM48 125.4C48 118 54 112 61.4 112l389.2 0c7.4 0 13.4 6 13.4 13.4 0 4.2-2 8.2-5.3 10.7L280.2 271.5c-14.3 10.8-34.1 10.8-48.4 0L53.3 136.1c-3.3-2.5-5.3-6.5-5.3-10.7z"/></svg>
@@ -336,9 +378,12 @@
             </section>
 
             <div class="projects-grid">
-                <!-- Axl -->
+                <!-- 1. Axl (Product) -->
                 <div class="project-card">
-                    <img src="https://picsum.photos/seed/axl/600/340" alt="Axl" class="project-image" loading="lazy">
+                    <div class="project-image-wrap">
+                        <img src="https://picsum.photos/seed/axl/600/340" alt="Axl" class="project-image" loading="lazy">
+                        <span class="project-category"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M234.5 5.7c13.9-5.8 29.1-5.8 43 0l192 80.8C482.4 92.5 492 105.1 492 119.1l0 48.9-472 0 0-48.9c0-14 9.6-26.6 22.5-32.6l192-80.8zM0 192l512 0 0 16c0 17.7-14.3 32-32 32l0 192c17.7 0 32 14.3 32 32l0 32c0 17.7-14.3 32-32 32L32 496c-17.7 0-32-14.3-32-32l0-32c0-17.7 14.3-32 32-32L32 240c-17.7 0-32-14.3-32-32l0-16zm96 48l0 192h64l0-192H96zm128 0l0 192h64l0-192-64 0zm192 0l-64 0 0 192h64l0-192z"/></svg> Product</span>
+                    </div>
                     <div class="project-content">
                         <div class="project-title">Axl</div>
                         <p class="project-desc" data-i18n="axl_desc">AI gaming companion with Discord voice integration, Claude vision for screen analysis, and ElevenLabs text-to-speech for natural conversation.</p>
@@ -349,51 +394,103 @@
                             <span class="project-tag">Claude API</span>
                             <span class="project-tag">ElevenLabs</span>
                         </div>
-                        <a href="https://github.com/laurentmusic/axl" target="_blank" rel="noopener" class="project-link">
+                        <a href="https://github.com/rblaurent/axl" target="_blank" rel="noopener" class="project-link">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
                             <span data-i18n="view_github">View on GitHub</span>
                         </a>
                     </div>
                 </div>
 
-                <!-- Qwen3 TTS Server -->
+                <!-- 2. Claude Plays Civilization (Product, Private) -->
                 <div class="project-card">
-                    <img src="https://picsum.photos/seed/qwen3-tts-server/600/340" alt="Qwen3 TTS Server" class="project-image" loading="lazy">
+                    <div class="project-image-wrap">
+                        <img src="https://picsum.photos/seed/claude-civ/600/340" alt="Claude Plays Civilization" class="project-image" loading="lazy">
+                        <span class="project-category"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M234.5 5.7c13.9-5.8 29.1-5.8 43 0l192 80.8C482.4 92.5 492 105.1 492 119.1l0 48.9-472 0 0-48.9c0-14 9.6-26.6 22.5-32.6l192-80.8zM0 192l512 0 0 16c0 17.7-14.3 32-32 32l0 192c17.7 0 32 14.3 32 32l0 32c0 17.7-14.3 32-32 32L32 496c-17.7 0-32-14.3-32-32l0-32c0-17.7 14.3-32 32-32L32 240c-17.7 0-32-14.3-32-32l0-16zm96 48l0 192h64l0-192H96zm128 0l0 192h64l0-192-64 0zm192 0l-64 0 0 192h64l0-192z"/></svg> Product</span>
+                    </div>
                     <div class="project-content">
-                        <div class="project-title">Qwen3 TTS Server</div>
-                        <p class="project-desc" data-i18n="qwen3server_desc">Self-hosted text-to-speech server powered by the Qwen3-TTS model, featuring voice training capabilities and GPU optimization for fast inference.</p>
+                        <div class="project-title">Claude Plays Civilization</div>
+                        <p class="project-desc" data-i18n="claudeciv_desc">An AI agent that plays Civilization autonomously using Claude's reasoning and vision capabilities to make strategic decisions.</p>
                         <div class="project-tags">
                             <span class="project-tag">Python</span>
-                            <span class="project-tag">Qwen3-TTS</span>
+                            <span class="project-tag">Claude API</span>
+                            <span class="project-tag">Computer Use</span>
+                        </div>
+                        <span class="project-private">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M144 144l0 48 160 0 0-48c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192l0-48C80 64.5 144.5 0 224 0s144 64.5 144 144l0 48 16 0c35.3 0 64 28.7 64 64l0 192c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 256c0-35.3 28.7-64 64-64l16 0z"/></svg>
+                            <span data-i18n="private_repo">Private repository</span>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- 3. RedCompute (Back-end) -->
+                <div class="project-card">
+                    <div class="project-image-wrap">
+                        <img src="https://picsum.photos/seed/redcompute/600/340" alt="RedCompute" class="project-image" loading="lazy">
+                        <span class="project-category"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M64 32C28.7 32 0 60.7 0 96l0 64c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-64c0-35.3-28.7-64-64-64L64 32zm280 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm48 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0zM64 288c-35.3 0-64 28.7-64 64l0 64c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-64c0-35.3-28.7-64-64-64L64 288zm280 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm48 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0z"/></svg> Back-end</span>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-title">RedCompute</div>
+                        <p class="project-desc" data-i18n="redcompute_desc">GPU compute infrastructure and orchestration tooling for self-hosted AI model serving and training workloads.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
                             <span class="project-tag">CUDA</span>
+                            <span class="project-tag">Docker</span>
                         </div>
-                        <a href="https://github.com/laurentmusic/qwen3-tts-server" target="_blank" rel="noopener" class="project-link">
+                        <a href="https://github.com/rblaurent/redcompute" target="_blank" rel="noopener" class="project-link">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
                             <span data-i18n="view_github">View on GitHub</span>
                         </a>
                     </div>
                 </div>
 
-                <!-- Qwen3 TTS Streaming -->
+                <!-- 4. RedRoaster (Back-end, Private) -->
                 <div class="project-card">
-                    <img src="https://picsum.photos/seed/qwen3-tts-streaming/600/340" alt="Qwen3 TTS Streaming" class="project-image" loading="lazy">
+                    <div class="project-image-wrap">
+                        <img src="https://picsum.photos/seed/redroaster/600/340" alt="RedRoaster" class="project-image" loading="lazy">
+                        <span class="project-category"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M64 32C28.7 32 0 60.7 0 96l0 64c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-64c0-35.3-28.7-64-64-64L64 32zm280 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm48 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0zM64 288c-35.3 0-64 28.7-64 64l0 64c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-64c0-35.3-28.7-64-64-64L64 288zm280 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm48 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0z"/></svg> Back-end</span>
+                    </div>
                     <div class="project-content">
-                        <div class="project-title">Qwen3 TTS Streaming</div>
-                        <p class="project-desc" data-i18n="qwen3stream_desc">Real-time streaming text-to-speech companion, delivering low-latency audio output for seamless conversational applications.</p>
+                        <div class="project-title">RedRoaster</div>
+                        <p class="project-desc" data-i18n="redroaster_desc">AI-powered roasting companion that watches you play games and delivers witty, real-time commentary on your performance.</p>
                         <div class="project-tags">
                             <span class="project-tag">Python</span>
-                            <span class="project-tag">Qwen3-TTS</span>
+                            <span class="project-tag">Claude API</span>
+                            <span class="project-tag">ElevenLabs</span>
                         </div>
-                        <a href="https://github.com/laurentmusic/qwen3-tts-streaming" target="_blank" rel="noopener" class="project-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
-                            <span data-i18n="view_github">View on GitHub</span>
-                        </a>
+                        <span class="project-private">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M144 144l0 48 160 0 0-48c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192l0-48C80 64.5 144.5 0 224 0s144 64.5 144 144l0 48 16 0c35.3 0 64 28.7 64 64l0 192c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 256c0-35.3 28.7-64 64-64l16 0z"/></svg>
+                            <span data-i18n="private_repo">Private repository</span>
+                        </span>
                     </div>
                 </div>
 
-                <!-- Vynil -->
+                <!-- 5. RedStories (Product, Private) -->
                 <div class="project-card">
-                    <img src="https://picsum.photos/seed/vynil/600/340" alt="Vynil" class="project-image" loading="lazy">
+                    <div class="project-image-wrap">
+                        <img src="https://picsum.photos/seed/redstories/600/340" alt="RedStories" class="project-image" loading="lazy">
+                        <span class="project-category"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M234.5 5.7c13.9-5.8 29.1-5.8 43 0l192 80.8C482.4 92.5 492 105.1 492 119.1l0 48.9-472 0 0-48.9c0-14 9.6-26.6 22.5-32.6l192-80.8zM0 192l512 0 0 16c0 17.7-14.3 32-32 32l0 192c17.7 0 32 14.3 32 32l0 32c0 17.7-14.3 32-32 32L32 496c-17.7 0-32-14.3-32-32l0-32c0-17.7 14.3-32 32-32L32 240c-17.7 0-32-14.3-32-32l0-16zm96 48l0 192h64l0-192H96zm128 0l0 192h64l0-192-64 0zm192 0l-64 0 0 192h64l0-192z"/></svg> Product</span>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-title">RedStories</div>
+                        <p class="project-desc" data-i18n="redstories_desc">Multi-AI roleplay stories chat app where multiple AI characters interact in collaborative narrative experiences.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">TypeScript</span>
+                            <span class="project-tag">Claude API</span>
+                        </div>
+                        <span class="project-private">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M144 144l0 48 160 0 0-48c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192l0-48C80 64.5 144.5 0 224 0s144 64.5 144 144l0 48 16 0c35.3 0 64 28.7 64 64l0 192c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 256c0-35.3 28.7-64 64-64l16 0z"/></svg>
+                            <span data-i18n="private_repo">Private repository</span>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- 6. Vynil (Product) -->
+                <div class="project-card">
+                    <div class="project-image-wrap">
+                        <img src="https://picsum.photos/seed/vynil/600/340" alt="Vynil" class="project-image" loading="lazy">
+                        <span class="project-category"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M234.5 5.7c13.9-5.8 29.1-5.8 43 0l192 80.8C482.4 92.5 492 105.1 492 119.1l0 48.9-472 0 0-48.9c0-14 9.6-26.6 22.5-32.6l192-80.8zM0 192l512 0 0 16c0 17.7-14.3 32-32 32l0 192c17.7 0 32 14.3 32 32l0 32c0 17.7-14.3 32-32 32L32 496c-17.7 0-32-14.3-32-32l0-32c0-17.7 14.3-32 32-32L32 240c-17.7 0-32-14.3-32-32l0-16zm96 48l0 192h64l0-192H96zm128 0l0 192h64l0-192-64 0zm192 0l-64 0 0 192h64l0-192z"/></svg> Product</span>
+                    </div>
                     <div class="project-content">
                         <div class="project-title">Vynil</div>
                         <p class="project-desc" data-i18n="vynil_desc">A Spotify wrapper web app providing a refined listening experience with a clean, modern interface.</p>
@@ -403,7 +500,68 @@
                             <span class="project-tag">Vite</span>
                             <span class="project-tag">Tailwind CSS</span>
                         </div>
-                        <a href="https://github.com/laurentmusic/vynil" target="_blank" rel="noopener" class="project-link">
+                        <a href="https://github.com/rblaurent/vynil" target="_blank" rel="noopener" class="project-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+                            <span data-i18n="view_github">View on GitHub</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 7. InfinityMusic (Product, Private) -->
+                <div class="project-card">
+                    <div class="project-image-wrap">
+                        <img src="https://picsum.photos/seed/infinitymusic/600/340" alt="InfinityMusic" class="project-image" loading="lazy">
+                        <span class="project-category"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M234.5 5.7c13.9-5.8 29.1-5.8 43 0l192 80.8C482.4 92.5 492 105.1 492 119.1l0 48.9-472 0 0-48.9c0-14 9.6-26.6 22.5-32.6l192-80.8zM0 192l512 0 0 16c0 17.7-14.3 32-32 32l0 192c17.7 0 32 14.3 32 32l0 32c0 17.7-14.3 32-32 32L32 496c-17.7 0-32-14.3-32-32l0-32c0-17.7 14.3-32 32-32L32 240c-17.7 0-32-14.3-32-32l0-16zm96 48l0 192h64l0-192H96zm128 0l0 192h64l0-192-64 0zm192 0l-64 0 0 192h64l0-192z"/></svg> Product</span>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-title">InfinityMusic</div>
+                        <p class="project-desc" data-i18n="infinitymusic_desc">AI-driven music generation and exploration platform for creating and discovering endless audio compositions.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">AI/ML</span>
+                        </div>
+                        <span class="project-private">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M144 144l0 48 160 0 0-48c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192l0-48C80 64.5 144.5 0 224 0s144 64.5 144 144l0 48 16 0c35.3 0 64 28.7 64 64l0 192c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 256c0-35.3 28.7-64 64-64l16 0z"/></svg>
+                            <span data-i18n="private_repo">Private repository</span>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- 8. Qwen3 TTS Server (Back-end) -->
+                <div class="project-card">
+                    <div class="project-image-wrap">
+                        <img src="https://picsum.photos/seed/qwen3-tts-server/600/340" alt="Qwen3 TTS Server" class="project-image" loading="lazy">
+                        <span class="project-category"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M64 32C28.7 32 0 60.7 0 96l0 64c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-64c0-35.3-28.7-64-64-64L64 32zm280 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm48 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0zM64 288c-35.3 0-64 28.7-64 64l0 64c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-64c0-35.3-28.7-64-64-64L64 288zm280 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm48 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0z"/></svg> Back-end</span>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-title">Qwen3 TTS Server</div>
+                        <p class="project-desc" data-i18n="qwen3server_desc">Self-hosted text-to-speech server powered by the Qwen3-TTS model, featuring voice training capabilities and GPU optimization for fast inference.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Qwen3-TTS</span>
+                            <span class="project-tag">CUDA</span>
+                        </div>
+                        <a href="https://github.com/rblaurent/axlcompute-qwen3-tts-server" target="_blank" rel="noopener" class="project-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+                            <span data-i18n="view_github">View on GitHub</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 9. Qwen3 TTS Streaming (Back-end) -->
+                <div class="project-card">
+                    <div class="project-image-wrap">
+                        <img src="https://picsum.photos/seed/qwen3-tts-streaming/600/340" alt="Qwen3 TTS Streaming" class="project-image" loading="lazy">
+                        <span class="project-category"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M64 32C28.7 32 0 60.7 0 96l0 64c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-64c0-35.3-28.7-64-64-64L64 32zm280 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm48 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0zM64 288c-35.3 0-64 28.7-64 64l0 64c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-64c0-35.3-28.7-64-64-64L64 288zm280 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm48 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0z"/></svg> Back-end</span>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-title">Qwen3 TTS Streaming</div>
+                        <p class="project-desc" data-i18n="qwen3stream_desc">Real-time streaming text-to-speech companion, delivering low-latency audio output for seamless conversational applications.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Qwen3-TTS</span>
+                        </div>
+                        <a href="https://github.com/rblaurent/axl-compute-qwen3-tts-streaming" target="_blank" rel="noopener" class="project-link">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
                             <span data-i18n="view_github">View on GitHub</span>
                         </a>
@@ -421,23 +579,35 @@
 const translations = {
     en: {
         back_to_resume: "Resume",
-        side_projects: "Side Projects",
+        side_projects: "Portfolio",
         portfolio_summary: "A collection of personal projects I build on evenings and weekends \u2014 exploring AI, real-time audio, and creative tools. These are playgrounds where I experiment with new ideas and ship things for fun.",
         view_github: "View on GitHub",
         axl_desc: "AI gaming companion with Discord voice integration, Claude vision for screen analysis, and ElevenLabs text-to-speech for natural conversation.",
         qwen3server_desc: "Self-hosted text-to-speech server powered by the Qwen3-TTS model, featuring voice training capabilities and GPU optimization for fast inference.",
         qwen3stream_desc: "Real-time streaming text-to-speech companion, delivering low-latency audio output for seamless conversational applications.",
-        vynil_desc: "A Spotify wrapper web app providing a refined listening experience with a clean, modern interface."
+        vynil_desc: "A Spotify wrapper web app providing a refined listening experience with a clean, modern interface.",
+        claudeciv_desc: "An AI agent that plays Civilization autonomously using Claude's reasoning and vision capabilities to make strategic decisions.",
+        redcompute_desc: "GPU compute infrastructure and orchestration tooling for self-hosted AI model serving and training workloads.",
+        redroaster_desc: "AI-powered roasting companion that watches you play games and delivers witty, real-time commentary on your performance.",
+        redstories_desc: "Multi-AI roleplay stories chat app where multiple AI characters interact in collaborative narrative experiences.",
+        infinitymusic_desc: "AI-driven music generation and exploration platform for creating and discovering endless audio compositions.",
+        private_repo: "Private repository"
     },
     fr: {
         back_to_resume: "CV",
-        side_projects: "Projets Personnels",
+        side_projects: "Portfolio",
         portfolio_summary: "Une collection de projets personnels que je d\u00e9veloppe le soir et le week-end \u2014 explorant l\u2019IA, l\u2019audio temps r\u00e9el et les outils cr\u00e9atifs. Ce sont des terrains de jeu o\u00f9 j\u2019exp\u00e9rimente de nouvelles id\u00e9es et livre des choses pour le plaisir.",
         view_github: "Voir sur GitHub",
         axl_desc: "Compagnon IA de jeu avec int\u00e9gration vocale Discord, vision Claude pour l\u2019analyse d\u2019\u00e9cran et synth\u00e8se vocale ElevenLabs pour une conversation naturelle.",
         qwen3server_desc: "Serveur de synth\u00e8se vocale auto-h\u00e9berg\u00e9 bas\u00e9 sur le mod\u00e8le Qwen3-TTS, avec entra\u00eenement de voix et optimisation GPU pour une inf\u00e9rence rapide.",
         qwen3stream_desc: "Compagnon de synth\u00e8se vocale en streaming temps r\u00e9el, offrant une sortie audio \u00e0 faible latence pour des applications conversationnelles fluides.",
-        vynil_desc: "Application web Spotify offrant une exp\u00e9rience d\u2019\u00e9coute raffin\u00e9e avec une interface moderne et \u00e9pur\u00e9e."
+        vynil_desc: "Application web Spotify offrant une exp\u00e9rience d\u2019\u00e9coute raffin\u00e9e avec une interface moderne et \u00e9pur\u00e9e.",
+        claudeciv_desc: "Un agent IA qui joue \u00e0 Civilization de mani\u00e8re autonome en utilisant les capacit\u00e9s de raisonnement et de vision de Claude pour prendre des d\u00e9cisions strat\u00e9giques.",
+        redcompute_desc: "Infrastructure de calcul GPU et outils d\u2019orchestration pour l\u2019h\u00e9bergement et l\u2019entra\u00eenement de mod\u00e8les IA en auto-h\u00e9berg\u00e9.",
+        redroaster_desc: "Compagnon IA qui vous regarde jouer et d\u00e9livre des commentaires sarcastiques en temps r\u00e9el sur vos performances.",
+        redstories_desc: "Application de chat multi-IA o\u00f9 plusieurs personnages IA interagissent dans des exp\u00e9riences narratives collaboratives.",
+        infinitymusic_desc: "Plateforme de g\u00e9n\u00e9ration et d\u2019exploration musicale par IA pour cr\u00e9er et d\u00e9couvrir des compositions audio infinies.",
+        private_repo: "D\u00e9p\u00f4t priv\u00e9"
     }
 };
 
@@ -448,7 +618,7 @@ function setLang(lang) {
             el.textContent = translations[lang][key];
         }
     });
-    document.title = lang === 'fr' ? 'Laurent B\u00e9cherel - Projets Personnels' : 'Laurent B\u00e9cherel - Side Projects';
+    document.title = lang === 'fr' ? 'Laurent B\u00e9cherel - Portfolio' : 'Laurent B\u00e9cherel - Portfolio';
     document.documentElement.lang = lang;
     document.querySelectorAll('#lang-toggle span').forEach(function(s) {
         s.classList.toggle('active', s.getAttribute('data-lang') === lang);
