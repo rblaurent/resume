@@ -131,7 +131,7 @@
 
         .title {
             font-size: 22px;
-            color: #888;
+            color: #bbb;
             margin-top: -10px;
         }
 
@@ -204,22 +204,28 @@
         .summary {
             font-size: 16px;
             line-height: 1.8;
-            color: #999;
+            color: #c0c0c0;
             margin-bottom: 40px;
         }
 
-        /* Projects grid */
+        /* Projects grid (masonry via flexbox columns) */
         .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            display: flex;
             gap: 24px;
             padding-bottom: 60px;
         }
 
+        .projects-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
         .project-card {
             background: #353535;
-            border: 1px solid #444;
-            border-radius: 10px;
+            border: 2px solid #444;
+            border-radius: 14px;
             overflow: hidden;
             transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
         }
@@ -234,7 +240,9 @@
             width: 100%;
             height: 180px;
             object-fit: cover;
+            object-position: top left;
             display: block;
+            image-rendering: high-quality;
             background: #383838;
         }
 
@@ -247,66 +255,89 @@
             font-size: 18px;
             font-weight: 600;
             color: #d0d0d0;
-            margin-bottom: 8px;
         }
 
         .project-desc {
             font-size: 14px;
             line-height: 1.6;
-            color: #888;
+            color: #bbb;
             margin-bottom: 14px;
+        }
+
+        .project-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 14px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 13px;
+            color: #888;
+            line-height: 1.5;
+        }
+
+        .project-features li {
+            padding-left: 14px;
+            position: relative;
+            margin-bottom: 2px;
+        }
+
+        .project-features li::before {
+            content: '·';
+            position: absolute;
+            left: 2px;
+            color: #666;
+            font-weight: 600;
         }
 
         .project-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
-            margin-bottom: 16px;
+            gap: 4px;
         }
 
         .project-tag {
             font-family: 'Outfit', sans-serif;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 500;
-            background: #4a4a4a;
-            color: #bbb;
-            padding: 3px 10px;
+            background: none;
+            color: #666;
+            padding: 2px 8px;
             border-radius: 20px;
+            border: 1px solid #444;
         }
 
-        .project-link {
-            font-family: 'Outfit', sans-serif;
-            font-size: 13px;
-            font-weight: 500;
-            color: #999;
+        .project-tag a {
+            color: inherit;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            transition: color 0.2s;
+            gap: 4px;
         }
 
-        .project-link:hover {
-            color: #ccc;
+        .project-tag a:hover {
+            color: #999;
+        }
+
+        .project-title-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
         }
 
         .project-category {
-            position: absolute;
-            top: 12px;
-            left: 12px;
             font-family: 'Outfit', sans-serif;
             font-size: 10px;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            color: #fff;
-            background: rgba(0,0,0,0.55);
-            backdrop-filter: blur(4px);
+            color: #aaa;
+            background: rgba(255,255,255,0.08);
             padding: 4px 10px;
             border-radius: 4px;
             display: inline-flex;
             align-items: center;
             gap: 5px;
+            flex-shrink: 0;
         }
 
         .project-category svg {
@@ -315,26 +346,55 @@
         }
 
         .project-image-wrap {
-            position: relative;
+            cursor: zoom-in;
+            overflow: hidden;
         }
 
-        .project-private {
-            font-family: 'Outfit', sans-serif;
-            font-size: 12px;
-            color: #666;
-            display: inline-flex;
+        .project-image-wrap .project-image {
+            transform: scale(1.02);
+        }
+
+        /* Compact card variant (no image) */
+        .project-card-compact .project-content {
+            padding: 16px;
+        }
+
+        .project-tag svg {
+            width: 10px;
+            height: 10px;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.85);
+            display: flex;
             align-items: center;
-            gap: 6px;
+            justify-content: center;
+            z-index: 1000;
+            cursor: zoom-out;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
         }
 
-        .project-private svg {
-            width: 13px;
-            height: 13px;
+        .lightbox.active {
+            opacity: 1;
+            visibility: visible;
         }
 
-        .project-link svg {
-            width: 15px;
-            height: 15px;
+        .lightbox img {
+            max-width: 90vw;
+            max-height: 85vh;
+            border-radius: 10px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+            transform: scale(0.92);
+            transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .lightbox.active img {
+            transform: scale(1);
         }
 
         @media (max-width: 700px) {
@@ -343,7 +403,11 @@
             }
 
             .projects-grid {
-                grid-template-columns: 1fr;
+                flex-direction: column;
+            }
+
+            .projects-col {
+                display: contents;
             }
         }
     </style>
@@ -393,212 +457,219 @@
                 <!-- 1. Axl (Product) -->
                 <div class="project-card">
                     <div class="project-image-wrap">
-                        <img src="https://picsum.photos/seed/axl/600/340" alt="Axl" class="project-image" loading="lazy">
-                        <span class="project-category"><svg><use href="#icon-software"/></svg> Software</span>
+                        <img src="images/axl.jpg" alt="Axl" class="project-image" loading="lazy">
                     </div>
                     <div class="project-content">
-                        <div class="project-title">Axl</div>
+                        <div class="project-title-row">
+                            <div class="project-title">Axl</div>
+                            <span class="project-category"><svg><use href="#icon-software"/></svg> Software</span>
+                        </div>
                         <p class="project-desc" data-i18n="axl_desc">AI gaming companion with Discord voice integration, Claude vision for screen analysis, and ElevenLabs text-to-speech for natural conversation.</p>
+                        <ul class="project-features">
+                            <li data-i18n="axl_feat1">Discord voice chat integration</li>
+                            <li data-i18n="axl_feat2">Claude vision screen analysis</li>
+                            <li data-i18n="axl_feat3">ElevenLabs TTS voice output</li>
+                            <li data-i18n="axl_feat4">Real-time game awareness</li>
+                        </ul>
                         <div class="project-tags">
+                            <span class="project-tag"><svg><use href="#icon-lock"/></svg> <span data-i18n="private_repo">Private repository</span></span>
                             <span class="project-tag">.NET 9</span>
                             <span class="project-tag">WPF</span>
                             <span class="project-tag">Discord.Net</span>
                             <span class="project-tag">Claude API</span>
                             <span class="project-tag">ElevenLabs</span>
                         </div>
-                        <a href="https://github.com/rblaurent/axl" target="_blank" rel="noopener" class="project-link">
-                            <svg><use href="#icon-github"/></svg>
-                            <span data-i18n="view_github">View on GitHub</span>
-                        </a>
                     </div>
                 </div>
 
                 <!-- 2. Claude Plays Civilization (Product, Private) -->
                 <div class="project-card">
                     <div class="project-image-wrap">
-                        <img src="https://picsum.photos/seed/claude-civ/600/340" alt="Claude Plays Civilization" class="project-image" loading="lazy">
-                        <span class="project-category"><svg><use href="#icon-software"/></svg> Software</span>
+                        <img src="images/claudeplayscivilization.png" alt="Claude Plays Civilization" class="project-image" loading="lazy">
                     </div>
                     <div class="project-content">
-                        <div class="project-title">Claude Plays Civilization</div>
+                        <div class="project-title-row">
+                            <div class="project-title">Claude Plays Civilization</div>
+                            <span class="project-category"><svg><use href="#icon-software"/></svg> Software</span>
+                        </div>
                         <p class="project-desc" data-i18n="claudeciv_desc">An AI agent that plays Civilization autonomously using Claude's reasoning and vision capabilities to make strategic decisions.</p>
+                        <ul class="project-features">
+                            <li data-i18n="claudeciv_feat1">Autonomous gameplay via Claude reasoning</li>
+                            <li data-i18n="claudeciv_feat2">Screenshot-based vision input</li>
+                            <li data-i18n="claudeciv_feat3">Strategic decision making</li>
+                        </ul>
                         <div class="project-tags">
+                            <span class="project-tag"><svg><use href="#icon-lock"/></svg> <span data-i18n="private_repo">Private repository</span></span>
                             <span class="project-tag">Python</span>
                             <span class="project-tag">Claude API</span>
                             <span class="project-tag">Computer Use</span>
                         </div>
-                        <span class="project-private">
-                            <svg><use href="#icon-lock"/></svg>
-                            <span data-i18n="private_repo">Private repository</span>
-                        </span>
                     </div>
                 </div>
 
                 <!-- 3. RedCompute (Back-end) -->
-                <div class="project-card">
-                    <div class="project-image-wrap">
-                        <img src="https://picsum.photos/seed/redcompute/600/340" alt="RedCompute" class="project-image" loading="lazy">
-                        <span class="project-category"><svg><use href="#icon-backend"/></svg> Back-end</span>
-                    </div>
+                <div class="project-card project-card-compact">
                     <div class="project-content">
-                        <div class="project-title">RedCompute</div>
+                        <div class="project-title-row">
+                            <div class="project-title">RedCompute</div>
+                            <span class="project-category"><svg><use href="#icon-backend"/></svg> Back-end</span>
+                        </div>
                         <p class="project-desc" data-i18n="redcompute_desc">GPU compute infrastructure and orchestration tooling for self-hosted AI model serving and training workloads.</p>
+                        <ul class="project-features">
+                            <li data-i18n="redcompute_feat1">GPU job scheduling & orchestration</li>
+                            <li data-i18n="redcompute_feat2">Docker-based model serving</li>
+                            <li data-i18n="redcompute_feat3">CUDA workload management</li>
+                        </ul>
                         <div class="project-tags">
+                            <span class="project-tag"><svg><use href="#icon-lock"/></svg> <span data-i18n="private_repo">Private repository</span></span>
                             <span class="project-tag">Python</span>
                             <span class="project-tag">CUDA</span>
                             <span class="project-tag">Docker</span>
                         </div>
-                        <a href="https://github.com/rblaurent/redcompute" target="_blank" rel="noopener" class="project-link">
-                            <svg><use href="#icon-github"/></svg>
-                            <span data-i18n="view_github">View on GitHub</span>
-                        </a>
                     </div>
                 </div>
 
-                <!-- 4. RedRoaster (Back-end, Private) -->
+                <!-- 4. RedStories (Product, Private) -->
                 <div class="project-card">
                     <div class="project-image-wrap">
-                        <img src="https://picsum.photos/seed/redroaster/600/340" alt="RedRoaster" class="project-image" loading="lazy">
-                        <span class="project-category"><svg><use href="#icon-backend"/></svg> Back-end</span>
+                        <img src="images/redstories.png" alt="RedStories" class="project-image" loading="lazy">
                     </div>
                     <div class="project-content">
-                        <div class="project-title">RedRoaster</div>
-                        <p class="project-desc" data-i18n="redroaster_desc">AI-powered roasting companion that watches you play games and delivers witty, real-time commentary on your performance.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">Claude API</span>
-                            <span class="project-tag">ElevenLabs</span>
+                        <div class="project-title-row">
+                            <div class="project-title">RedStories</div>
+                            <span class="project-category"><svg><use href="#icon-web"/></svg> Web</span>
                         </div>
-                        <span class="project-private">
-                            <svg><use href="#icon-lock"/></svg>
-                            <span data-i18n="private_repo">Private repository</span>
-                        </span>
-                    </div>
-                </div>
-
-                <!-- 5. RedStories (Product, Private) -->
-                <div class="project-card">
-                    <div class="project-image-wrap">
-                        <img src="https://picsum.photos/seed/redstories/600/340" alt="RedStories" class="project-image" loading="lazy">
-                        <span class="project-category"><svg><use href="#icon-web"/></svg> Web</span>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-title">RedStories</div>
                         <p class="project-desc" data-i18n="redstories_desc">Multi-AI roleplay stories chat app where multiple AI characters interact in collaborative narrative experiences.</p>
+                        <ul class="project-features">
+                            <li data-i18n="redstories_feat1">Multi-character AI conversations</li>
+                            <li data-i18n="redstories_feat2">Collaborative storytelling</li>
+                            <li data-i18n="redstories_feat3">Real-time chat interface</li>
+                        </ul>
                         <div class="project-tags">
+                            <span class="project-tag"><svg><use href="#icon-lock"/></svg> <span data-i18n="private_repo">Private repository</span></span>
                             <span class="project-tag">React</span>
                             <span class="project-tag">TypeScript</span>
                             <span class="project-tag">Claude API</span>
                         </div>
-                        <span class="project-private">
-                            <svg><use href="#icon-lock"/></svg>
-                            <span data-i18n="private_repo">Private repository</span>
-                        </span>
                     </div>
                 </div>
 
                 <!-- 6. Vynil (Product) -->
                 <div class="project-card">
                     <div class="project-image-wrap">
-                        <img src="https://picsum.photos/seed/vynil/600/340" alt="Vynil" class="project-image" loading="lazy">
-                        <span class="project-category"><svg><use href="#icon-web"/></svg> Web</span>
+                        <img src="images/vynil.png" alt="Vynil" class="project-image" loading="lazy">
                     </div>
                     <div class="project-content">
-                        <div class="project-title">Vynil</div>
+                        <div class="project-title-row">
+                            <div class="project-title">Vynil</div>
+                            <span class="project-category"><svg><use href="#icon-web"/></svg> Web</span>
+                        </div>
                         <p class="project-desc" data-i18n="vynil_desc">A Spotify wrapper web app providing a refined listening experience with a clean, modern interface.</p>
+                        <ul class="project-features">
+                            <li data-i18n="vynil_feat1">Spotify API integration</li>
+                            <li data-i18n="vynil_feat2">Custom playback UI</li>
+                            <li data-i18n="vynil_feat3">Clean, modern listening experience</li>
+                        </ul>
                         <div class="project-tags">
+                            <span class="project-tag"><a href="https://github.com/rblaurent/vynil" target="_blank" rel="noopener"><svg><use href="#icon-github"/></svg> <span data-i18n="view_github">View on GitHub</span></a></span>
                             <span class="project-tag">React</span>
                             <span class="project-tag">TypeScript</span>
                             <span class="project-tag">Vite</span>
                             <span class="project-tag">Tailwind CSS</span>
                         </div>
-                        <a href="https://github.com/rblaurent/vynil" target="_blank" rel="noopener" class="project-link">
-                            <svg><use href="#icon-github"/></svg>
-                            <span data-i18n="view_github">View on GitHub</span>
-                        </a>
                     </div>
                 </div>
 
                 <!-- 7. InfinityMusic (Product, Private) -->
                 <div class="project-card">
                     <div class="project-image-wrap">
-                        <img src="https://picsum.photos/seed/infinitymusic/600/340" alt="InfinityMusic" class="project-image" loading="lazy">
-                        <span class="project-category"><svg><use href="#icon-software"/></svg> Software</span>
+                        <img src="images/infinitymusic.png" alt="InfinityMusic" class="project-image" loading="lazy">
                     </div>
                     <div class="project-content">
-                        <div class="project-title">InfinityMusic</div>
+                        <div class="project-title-row">
+                            <div class="project-title">InfinityMusic</div>
+                            <span class="project-category"><svg><use href="#icon-software"/></svg> Software</span>
+                        </div>
                         <p class="project-desc" data-i18n="infinitymusic_desc">AI-driven music generation and exploration platform for creating and discovering endless audio compositions.</p>
+                        <ul class="project-features">
+                            <li data-i18n="infinitymusic_feat1">AI-driven music generation</li>
+                            <li data-i18n="infinitymusic_feat2">Audio composition exploration</li>
+                            <li data-i18n="infinitymusic_feat3">Endless playlist creation</li>
+                        </ul>
                         <div class="project-tags">
+                            <span class="project-tag"><svg><use href="#icon-lock"/></svg> <span data-i18n="private_repo">Private repository</span></span>
                             <span class="project-tag">Python</span>
                             <span class="project-tag">AI/ML</span>
                         </div>
-                        <span class="project-private">
-                            <svg><use href="#icon-lock"/></svg>
-                            <span data-i18n="private_repo">Private repository</span>
-                        </span>
                     </div>
                 </div>
 
                 <!-- 8. Qwen3 TTS Server (Back-end) -->
-                <div class="project-card">
-                    <div class="project-image-wrap">
-                        <img src="https://picsum.photos/seed/qwen3-tts-server/600/340" alt="Qwen3 TTS Server" class="project-image" loading="lazy">
-                        <span class="project-category"><svg><use href="#icon-backend"/></svg> Back-end</span>
-                    </div>
+                <div class="project-card project-card-compact">
                     <div class="project-content">
-                        <div class="project-title">Qwen3 TTS Server</div>
+                        <div class="project-title-row">
+                            <div class="project-title">Qwen3 TTS Server</div>
+                            <span class="project-category"><svg><use href="#icon-backend"/></svg> Back-end</span>
+                        </div>
                         <p class="project-desc" data-i18n="qwen3server_desc">Self-hosted text-to-speech server powered by the Qwen3-TTS model, featuring voice training capabilities and GPU optimization for fast inference.</p>
+                        <ul class="project-features">
+                            <li data-i18n="qwen3server_feat1">Self-hosted Qwen3-TTS inference</li>
+                            <li data-i18n="qwen3server_feat2">Custom voice training</li>
+                            <li data-i18n="qwen3server_feat3">GPU-optimized serving</li>
+                        </ul>
                         <div class="project-tags">
+                            <span class="project-tag"><a href="https://github.com/rblaurent/axlcompute-qwen3-tts-server" target="_blank" rel="noopener"><svg><use href="#icon-github"/></svg> <span data-i18n="view_github">View on GitHub</span></a></span>
                             <span class="project-tag">Python</span>
                             <span class="project-tag">Qwen3-TTS</span>
                             <span class="project-tag">CUDA</span>
                         </div>
-                        <a href="https://github.com/rblaurent/axlcompute-qwen3-tts-server" target="_blank" rel="noopener" class="project-link">
-                            <svg><use href="#icon-github"/></svg>
-                            <span data-i18n="view_github">View on GitHub</span>
-                        </a>
                     </div>
                 </div>
 
                 <!-- 9. Qwen3 TTS Streaming (Back-end) -->
-                <div class="project-card">
-                    <div class="project-image-wrap">
-                        <img src="https://picsum.photos/seed/qwen3-tts-streaming/600/340" alt="Qwen3 TTS Streaming" class="project-image" loading="lazy">
-                        <span class="project-category"><svg><use href="#icon-backend"/></svg> Back-end</span>
-                    </div>
+                <div class="project-card project-card-compact">
                     <div class="project-content">
-                        <div class="project-title">Qwen3 TTS Streaming</div>
+                        <div class="project-title-row">
+                            <div class="project-title">Qwen3 TTS Streaming</div>
+                            <span class="project-category"><svg><use href="#icon-backend"/></svg> Back-end</span>
+                        </div>
                         <p class="project-desc" data-i18n="qwen3stream_desc">Real-time streaming text-to-speech companion, delivering low-latency audio output for seamless conversational applications.</p>
+                        <ul class="project-features">
+                            <li data-i18n="qwen3stream_feat1">Low-latency streaming audio</li>
+                            <li data-i18n="qwen3stream_feat2">Real-time text-to-speech</li>
+                            <li data-i18n="qwen3stream_feat3">Chunked inference pipeline</li>
+                        </ul>
                         <div class="project-tags">
+                            <span class="project-tag"><a href="https://github.com/rblaurent/axl-compute-qwen3-tts-streaming" target="_blank" rel="noopener"><svg><use href="#icon-github"/></svg> <span data-i18n="view_github">View on GitHub</span></a></span>
                             <span class="project-tag">Python</span>
                             <span class="project-tag">Qwen3-TTS</span>
                         </div>
-                        <a href="https://github.com/rblaurent/axl-compute-qwen3-tts-streaming" target="_blank" rel="noopener" class="project-link">
-                            <svg><use href="#icon-github"/></svg>
-                            <span data-i18n="view_github">View on GitHub</span>
-                        </a>
                     </div>
                 </div>
 
                 <!-- 10. Resume (Product) -->
                 <div class="project-card">
                     <div class="project-image-wrap">
-                        <img src="https://picsum.photos/seed/resume-site/600/340" alt="Resume" class="project-image" loading="lazy">
-                        <span class="project-category"><svg><use href="#icon-web"/></svg> Web</span>
+                        <img src="images/resume.png" alt="Resume" class="project-image" loading="lazy">
                     </div>
                     <div class="project-content">
-                        <div class="project-title">Resume</div>
+                        <div class="project-title-row">
+                            <div class="project-title">Resume</div>
+                            <span class="project-category"><svg><use href="#icon-web"/></svg> Web</span>
+                        </div>
                         <p class="project-desc" data-i18n="resume_desc">This very site — a single-file bilingual resume with dark-themed portfolio, built entirely with Claude Code.</p>
+                        <ul class="project-features">
+                            <li data-i18n="resume_feat1">Bilingual EN/FR with auto-detection</li>
+                            <li data-i18n="resume_feat2">Dark-themed portfolio page</li>
+                            <li data-i18n="resume_feat3">Single-file architecture</li>
+                        </ul>
                         <div class="project-tags">
+                            <span class="project-tag"><a href="https://github.com/rblaurent/resume" target="_blank" rel="noopener"><svg><use href="#icon-github"/></svg> <span data-i18n="view_github">View on GitHub</span></a></span>
                             <span class="project-tag">HTML</span>
                             <span class="project-tag">CSS</span>
                             <span class="project-tag">JavaScript</span>
                             <span class="project-tag">Claude Code</span>
                         </div>
-                        <a href="https://github.com/rblaurent/resume" target="_blank" rel="noopener" class="project-link">
-                            <svg><use href="#icon-github"/></svg>
-                            <span data-i18n="view_github">View on GitHub</span>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -609,6 +680,11 @@
         </a>
     </div>
 
+    <div class="lightbox" id="lightbox">
+        <img src="" alt="">
+    </div>
+
+<script src="i18n.js"></script>
 <script>
 const translations = {
     en: {
@@ -622,11 +698,38 @@ const translations = {
         vynil_desc: "A Spotify wrapper web app providing a refined listening experience with a clean, modern interface.",
         claudeciv_desc: "An AI agent that plays Civilization autonomously using Claude's reasoning and vision capabilities to make strategic decisions.",
         redcompute_desc: "GPU compute infrastructure and orchestration tooling for self-hosted AI model serving and training workloads.",
-        redroaster_desc: "AI-powered roasting companion that watches you play games and delivers witty, real-time commentary on your performance.",
         redstories_desc: "Multi-AI roleplay stories chat app where multiple AI characters interact in collaborative narrative experiences.",
         infinitymusic_desc: "AI-driven music generation and exploration platform for creating and discovering endless audio compositions.",
         resume_desc: "This very site — a single-file bilingual resume with dark-themed portfolio, built entirely with Claude Code.",
-        private_repo: "Private repository"
+        private_repo: "Private repository",
+        axl_feat1: "Discord voice chat integration",
+        axl_feat2: "Claude vision screen analysis",
+        axl_feat3: "ElevenLabs TTS voice output",
+        axl_feat4: "Real-time game awareness",
+        claudeciv_feat1: "Autonomous gameplay via Claude reasoning",
+        claudeciv_feat2: "Screenshot-based vision input",
+        claudeciv_feat3: "Strategic decision making",
+        redcompute_feat1: "GPU job scheduling & orchestration",
+        redcompute_feat2: "Docker-based model serving",
+        redcompute_feat3: "CUDA workload management",
+        redstories_feat1: "Multi-character AI conversations",
+        redstories_feat2: "Collaborative storytelling",
+        redstories_feat3: "Real-time chat interface",
+        vynil_feat1: "Spotify API integration",
+        vynil_feat2: "Custom playback UI",
+        vynil_feat3: "Clean, modern listening experience",
+        infinitymusic_feat1: "AI-driven music generation",
+        infinitymusic_feat2: "Audio composition exploration",
+        infinitymusic_feat3: "Endless playlist creation",
+        qwen3server_feat1: "Self-hosted Qwen3-TTS inference",
+        qwen3server_feat2: "Custom voice training",
+        qwen3server_feat3: "GPU-optimized serving",
+        qwen3stream_feat1: "Low-latency streaming audio",
+        qwen3stream_feat2: "Real-time text-to-speech",
+        qwen3stream_feat3: "Chunked inference pipeline",
+        resume_feat1: "Bilingual EN/FR with auto-detection",
+        resume_feat2: "Dark-themed portfolio page",
+        resume_feat3: "Single-file architecture"
     },
     fr: {
         back_to_resume: "CV",
@@ -639,33 +742,74 @@ const translations = {
         vynil_desc: "Application web Spotify offrant une exp\u00e9rience d\u2019\u00e9coute raffin\u00e9e avec une interface moderne et \u00e9pur\u00e9e.",
         claudeciv_desc: "Un agent IA qui joue \u00e0 Civilization de mani\u00e8re autonome en utilisant les capacit\u00e9s de raisonnement et de vision de Claude pour prendre des d\u00e9cisions strat\u00e9giques.",
         redcompute_desc: "Infrastructure de calcul GPU et outils d\u2019orchestration pour l\u2019h\u00e9bergement et l\u2019entra\u00eenement de mod\u00e8les IA en auto-h\u00e9berg\u00e9.",
-        redroaster_desc: "Compagnon IA qui vous regarde jouer et d\u00e9livre des commentaires sarcastiques en temps r\u00e9el sur vos performances.",
         redstories_desc: "Application de chat multi-IA o\u00f9 plusieurs personnages IA interagissent dans des exp\u00e9riences narratives collaboratives.",
         infinitymusic_desc: "Plateforme de génération et d\u2019exploration musicale par IA pour créer et découvrir des compositions audio infinies.",
         resume_desc: "Ce site même — un CV bilingue en fichier unique avec portfolio sombre, entièrement construit avec Claude Code.",
-        private_repo: "Dépôt privé"
+        private_repo: "Dépôt privé",
+        axl_feat1: "Intégration vocale Discord",
+        axl_feat2: "Analyse d'écran par vision Claude",
+        axl_feat3: "Sortie vocale ElevenLabs TTS",
+        axl_feat4: "Conscience du jeu en temps réel",
+        claudeciv_feat1: "Jeu autonome via raisonnement Claude",
+        claudeciv_feat2: "Entrée visuelle par captures d'écran",
+        claudeciv_feat3: "Prise de décisions stratégiques",
+        redcompute_feat1: "Planification et orchestration de tâches GPU",
+        redcompute_feat2: "Déploiement de modèles via Docker",
+        redcompute_feat3: "Gestion des charges CUDA",
+        redstories_feat1: "Conversations IA multi-personnages",
+        redstories_feat2: "Narration collaborative",
+        redstories_feat3: "Interface de chat en temps réel",
+        vynil_feat1: "Intégration API Spotify",
+        vynil_feat2: "Interface de lecture personnalisée",
+        vynil_feat3: "Expérience d'écoute moderne et épurée",
+        infinitymusic_feat1: "Génération musicale par IA",
+        infinitymusic_feat2: "Exploration de compositions audio",
+        infinitymusic_feat3: "Création de playlists infinies",
+        qwen3server_feat1: "Inférence Qwen3-TTS auto-hébergée",
+        qwen3server_feat2: "Entraînement de voix personnalisé",
+        qwen3server_feat3: "Service optimisé GPU",
+        qwen3stream_feat1: "Audio en streaming basse latence",
+        qwen3stream_feat2: "Synthèse vocale en temps réel",
+        qwen3stream_feat3: "Pipeline d'inférence par morceaux",
+        resume_feat1: "Bilingue EN/FR avec détection auto",
+        resume_feat2: "Page portfolio thème sombre",
+        resume_feat3: "Architecture en fichier unique"
     }
 };
+initLang();
 
-function setLang(lang) {
-    document.querySelectorAll('[data-i18n]').forEach(function(el) {
-        var key = el.getAttribute('data-i18n');
-        if (translations[lang] && translations[lang][key]) {
-            el.textContent = translations[lang][key];
-        }
-    });
-    document.title = lang === 'fr' ? 'Laurent B\u00e9cherel - Portfolio' : 'Laurent B\u00e9cherel - Portfolio';
-    document.documentElement.lang = lang;
-    document.querySelectorAll('#lang-toggle span').forEach(function(s) {
-        s.classList.toggle('active', s.getAttribute('data-lang') === lang);
-    });
-    localStorage.setItem('resume-lang', lang);
-}
-
+// Masonry: distribute cards left-right into two columns
 (function() {
-    var saved = localStorage.getItem('resume-lang');
-    if (saved && saved !== 'en') setLang(saved);
+    const grid = document.querySelector('.projects-grid');
+    const cards = Array.from(grid.children);
+    const col1 = document.createElement('div');
+    const col2 = document.createElement('div');
+    col1.className = 'projects-col';
+    col2.className = 'projects-col';
+    cards.forEach((card, i) => (i % 2 === 0 ? col1 : col2).appendChild(card));
+    grid.appendChild(col1);
+    grid.appendChild(col2);
 })();
+
+// Lightbox
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = lightbox.querySelector('img');
+
+document.querySelectorAll('.project-image-wrap').forEach(wrap => {
+    wrap.addEventListener('click', e => {
+        e.preventDefault();
+        const img = wrap.querySelector('.project-image');
+        if (!img) return;
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('active');
+    });
+});
+
+lightbox.addEventListener('click', () => lightbox.classList.remove('active'));
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') lightbox.classList.remove('active');
+});
 </script>
 </body>
 </html>
