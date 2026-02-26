@@ -26,6 +26,7 @@
             margin: 0 auto;
             background: #fff;
             min-height: 100vh;
+            position: relative;
         }
 
         /* Header with banner */
@@ -35,12 +36,16 @@
             background-image: url('banner.jpg');
             background-size: cover;
             background-position: center;
+            position: relative;
+            z-index: 1;
         }
 
         
         /* Main content */
         .main-content {
             padding: 0 60px 50px;
+            position: relative;
+            z-index: 1;
         }
 
         /* Header */
@@ -332,6 +337,47 @@
             margin-left: 48px;
         }
 
+        /* Side projects badge */
+        .side-projects-badge {
+            position: absolute;
+            right: 0;
+            top: 42px;
+            transform: translateX(100%);
+            background: #2D5A7B;
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            width: 64px;
+            height: 92px;
+            padding: 14px 10px;
+            border-radius: 0 6px 6px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            letter-spacing: 0.5px;
+            transition: transform 0.2s ease, background 0.2s, box-shadow 0.2s;
+            z-index: 0;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .side-projects-badge:hover {
+            transform: translateX(calc(100% - 4px));
+            background: #1e3d54;
+            box-shadow: 3px 4px 16px rgba(45, 90, 123, 0.35);
+        }
+
+        .side-projects-badge svg {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+        }
+
         /* Print styles */
         @media print {
             @page {
@@ -385,7 +431,8 @@
             }
 
             .download-btn,
-            .lang-toggle {
+            .lang-toggle,
+            .side-projects-badge {
                 display: none;
             }
 
@@ -563,6 +610,10 @@
                 </div>
             </section>
         </div>
+        <a href="portfolio.html" class="side-projects-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
+            <span data-i18n="side_projects_label">Portfolio</span>
+        </a>
     </div>
 <script>
 const translations = {
@@ -603,7 +654,8 @@ const translations = {
         ubi_3: "Red Steel 2 (Wii): Implemented save/checkpoint systems and menu controls; ensured Lotcheck compliance",
         // Education
         edu_location: "Evry, France",
-        edu_1: "M.S. in Telecommunications Engineering, with coursework in management and software development"
+        edu_1: "M.S. in Telecommunications Engineering, with coursework in management and software development",
+        side_projects_label: "Portfolio"
     },
     fr: {
         title: "Ing\u00e9nieur Logiciel",
@@ -642,7 +694,8 @@ const translations = {
         ubi_3: "Red Steel 2 (Wii)\u00a0: Impl\u00e9mentation des syst\u00e8mes de sauvegarde/checkpoint et des contr\u00f4les de menu\u00a0; respect des exigences Lotcheck",
         // Education
         edu_location: "\u00c9vry, France",
-        edu_1: "Dipl\u00f4me d\u2019ing\u00e9nieur en T\u00e9l\u00e9communications, avec sp\u00e9cialisations en management et d\u00e9veloppement logiciel"
+        edu_1: "Dipl\u00f4me d\u2019ing\u00e9nieur en T\u00e9l\u00e9communications, avec sp\u00e9cialisations en management et d\u00e9veloppement logiciel",
+        side_projects_label: "Portfolio"
     }
 };
 
