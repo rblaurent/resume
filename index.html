@@ -6,7 +6,7 @@
     <title>Laurent Becherel - Resume</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Source+Serif+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Outfit:wght@400;500;600&family=Source+Serif+Pro:wght@400;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -378,6 +378,49 @@
             flex-shrink: 0;
         }
 
+        /* Side projects CTA (handwritten annotation in right margin) */
+        .side-projects-cta {
+            position: absolute;
+            right: 0;
+            top: 175px;
+            transform: translateX(100%);
+            text-decoration: none;
+            color: #2D5A7B;
+            font-family: 'Caveat', cursive;
+            font-size: 20px;
+            font-weight: 700;
+            white-space: nowrap;
+            padding-left: 12px;
+            transition: color 0.2s;
+            z-index: 0;
+        }
+
+        .side-projects-cta span {
+            display: block;
+            margin-top: -18px;
+            margin-left: 32px;
+        }
+
+        .side-projects-cta:hover {
+            color: #1e3d54;
+        }
+
+        .side-projects-cta:hover .cta-arrow {
+            animation: arrow-wiggle 0.4s ease-in-out;
+        }
+
+        .cta-arrow {
+            display: block;
+            width: 50px;
+            height: 50px;
+        }
+
+        @keyframes arrow-wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(6deg); }
+            75% { transform: rotate(-6deg); }
+        }
+
         /* Print styles */
         @media print {
             @page {
@@ -432,7 +475,8 @@
 
             .download-btn,
             .lang-toggle,
-            .side-projects-badge {
+            .side-projects-badge,
+            .side-projects-cta {
                 display: none;
             }
 
@@ -622,6 +666,13 @@
             <svg><use href="#icon-code"/></svg>
             <span data-i18n="side_projects_label">Side Projects</span>
         </a>
+        <a href="projects.html" class="side-projects-cta">
+            <svg class="cta-arrow" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24 46 C10 36, 2 22, 8 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+                <path d="M2 12 L8 5 L14 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+            <span data-i18n="side_projects_cta">Check out my side projects!</span>
+        </a>
     </div>
 <script src="i18n.js"></script>
 <script>
@@ -659,7 +710,8 @@ const translations = {
         ubi_3: "Red Steel 2 (Wii): Implemented save/checkpoint systems and menu controls; ensured Lotcheck compliance",
         edu_location: "Evry, France",
         edu_1: "M.S. in Telecommunications Engineering, with coursework in management and software development",
-        side_projects_label: "Side Projects"
+        side_projects_label: "Side Projects",
+        side_projects_cta: "Check out my side projects!"
     },
     fr: {
         title: "Ing\u00e9nieur Logiciel",
@@ -699,7 +751,8 @@ const translations = {
         // Education
         edu_location: "\u00c9vry, France",
         edu_1: "Dipl\u00f4me d\u2019ing\u00e9nieur en T\u00e9l\u00e9communications, avec sp\u00e9cialisations en management et d\u00e9veloppement logiciel",
-        side_projects_label: "Projets Perso"
+        side_projects_label: "Projets Perso",
+        side_projects_cta: "D\u00e9couvrez mes projets perso\u00a0!"
     }
 };
 
