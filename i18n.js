@@ -2,7 +2,11 @@ function setLang(lang) {
     document.querySelectorAll('[data-i18n]').forEach(function(el) {
         var key = el.getAttribute('data-i18n');
         if (translations[lang] && translations[lang][key]) {
-            el.textContent = translations[lang][key];
+            if (translations[lang][key].indexOf('<') !== -1) {
+                el.innerHTML = translations[lang][key];
+            } else {
+                el.textContent = translations[lang][key];
+            }
         }
     });
 
