@@ -261,13 +261,13 @@
             font-size: 14px;
             line-height: 1.6;
             color: #bbb;
-            margin-bottom: 14px;
+            margin-bottom: 16px;
         }
 
         .project-features {
             list-style: none;
             padding: 0;
-            margin: 0 0 14px;
+            margin: 0 0 48px;
             font-family: 'Outfit', sans-serif;
             font-size: 13px;
             color: #888;
@@ -362,6 +362,28 @@
         .project-tag svg {
             width: 10px;
             height: 10px;
+        }
+
+        .project-card-subtle {
+            background: transparent;
+            border-style: dashed;
+            border-color: #3e3e3e;
+        }
+
+        .project-card-subtle .project-title {
+            color: #999;
+            font-size: 16px;
+        }
+
+        .project-card-subtle .project-desc {
+            color: #777;
+            font-size: 13px;
+        }
+
+        .project-card-subtle:hover {
+            transform: none;
+            border-color: #555;
+            box-shadow: none;
         }
 
         /* Lightbox */
@@ -464,12 +486,11 @@
                             <div class="project-title">Axl</div>
                             <span class="project-category"><svg><use href="#icon-software"/></svg> Software</span>
                         </div>
-                        <p class="project-desc" data-i18n="axl_desc">AI gaming companion with Discord voice integration, Claude vision for screen analysis, and ElevenLabs text-to-speech for natural conversation.</p>
+                        <p class="project-desc" data-i18n="axl_desc">AI gaming companion with Discord integration, using AI agents to understand a multiplayer gaming session, generate text-to-speech and interact with players.</p>
                         <ul class="project-features">
-                            <li data-i18n="axl_feat1">Discord voice chat integration</li>
-                            <li data-i18n="axl_feat2">Claude vision screen analysis</li>
-                            <li data-i18n="axl_feat3">ElevenLabs TTS voice output</li>
-                            <li data-i18n="axl_feat4">Real-time game awareness</li>
+                            <li data-i18n="axl_feat1">Multiple agents orchestration</li>
+                            <li data-i18n="axl_feat2">Low-latency inference and TTS</li>
+                            <li data-i18n="axl_feat3">Discord integration and game overlay</li>
                         </ul>
                         <div class="project-tags">
                             <span class="project-tag"><svg><use href="#icon-lock"/></svg> <span data-i18n="private_repo">Private repository</span></span>
@@ -496,11 +517,12 @@
                             <div class="project-title">Claude Plays Civilization</div>
                             <span class="project-category"><svg><use href="#icon-software"/></svg> Software</span>
                         </div>
-                        <p class="project-desc" data-i18n="claudeciv_desc">An AI agent that plays Civilization autonomously using Claude's reasoning and vision capabilities to make strategic decisions.</p>
+                        <p class="project-desc" data-i18n="claudeciv_desc">AI streamer that plays Civilization autonomously and interacts with Twitch chat.</p>
                         <ul class="project-features">
-                            <li data-i18n="claudeciv_feat1">Autonomous gameplay via Claude reasoning</li>
-                            <li data-i18n="claudeciv_feat2">Screenshot-based vision input</li>
-                            <li data-i18n="claudeciv_feat3">Strategic decision making</li>
+                            <li data-i18n="claudeciv_feat1">Multiple agents orchestration</li>
+                            <li data-i18n="claudeciv_feat2">Adaptive music generation</li>
+                            <li data-i18n="claudeciv_feat3">Adaptive image and video generation</li>
+                            <li data-i18n="claudeciv_feat4">Twitch live interaction</li>
                         </ul>
                         <div class="project-tags">
                             <span class="project-tag"><svg><use href="#icon-lock"/></svg> <span data-i18n="private_repo">Private repository</span></span>
@@ -524,11 +546,11 @@
                             <div class="project-title">RedCompute</div>
                             <span class="project-category"><svg><use href="#icon-backend"/></svg> Back-end</span>
                         </div>
-                        <p class="project-desc" data-i18n="redcompute_desc">GPU compute infrastructure and orchestration tooling for self-hosted AI model serving and training workloads.</p>
+                        <p class="project-desc" data-i18n="redcompute_desc">AI inference compute infrastructure and orchestration tooling for dispatching AI model workloads across local CPU/GPU, cloud GPUs and APIs. Used to power all my other projects.</p>
                         <ul class="project-features">
                             <li data-i18n="redcompute_feat1">GPU job scheduling & orchestration</li>
                             <li data-i18n="redcompute_feat2">Docker-based model serving</li>
-                            <li data-i18n="redcompute_feat3">CUDA workload management</li>
+                            <li data-i18n="redcompute_feat3">Bridge between local GPU, Cloud GPUs and Cloud APIs</li>
                         </ul>
                         <div class="project-tags">
                             <span class="project-tag"><svg><use href="#icon-lock"/></svg> <span data-i18n="private_repo">Private repository</span></span>
@@ -552,11 +574,11 @@
                             <div class="project-title">RedStories</div>
                             <span class="project-category"><svg><use href="#icon-web"/></svg> Web</span>
                         </div>
-                        <p class="project-desc" data-i18n="redstories_desc">Multi-AI roleplay stories chat app where multiple AI characters interact in collaborative narrative experiences.</p>
+                        <p class="project-desc" data-i18n="redstories_desc">Tabletop Roleplaying Games multiplayer chat with multiple AI characters for narration and NPCs.</p>
                         <ul class="project-features">
-                            <li data-i18n="redstories_feat1">Multi-character AI conversations</li>
-                            <li data-i18n="redstories_feat2">Collaborative storytelling</li>
-                            <li data-i18n="redstories_feat3">Real-time chat interface</li>
+                            <li data-i18n="redstories_feat1">Real-time chat</li>
+                            <li data-i18n="redstories_feat2">Local LLM inference</li>
+                            <li data-i18n="redstories_feat3">Orchestrators and individual NPC agents</li>
                         </ul>
                         <div class="project-tags">
                             <span class="project-tag"><svg><use href="#icon-lock"/></svg> <span data-i18n="private_repo">Private repository</span></span>
@@ -578,11 +600,9 @@
                             <div class="project-title">Vynil</div>
                             <span class="project-category"><svg><use href="#icon-web"/></svg> Web</span>
                         </div>
-                        <p class="project-desc" data-i18n="vynil_desc">A Spotify wrapper web app providing a refined listening experience with a clean, modern interface.</p>
+                        <p class="project-desc" data-i18n="vynil_desc">A Spotify wrapper web app providing a refined listening experience with emphasis on going back into the full-album listening experience.</p>
                         <ul class="project-features">
                             <li data-i18n="vynil_feat1">Spotify API integration</li>
-                            <li data-i18n="vynil_feat2">Custom playback UI</li>
-                            <li data-i18n="vynil_feat3">Clean, modern listening experience</li>
                         </ul>
                         <div class="project-tags">
                             <span class="project-tag"><a href="https://github.com/rblaurent/vynil" target="_blank" rel="noopener"><svg><use href="#icon-github"/></svg> <span data-i18n="view_github">View on GitHub</span></a></span>
@@ -604,11 +624,11 @@
                             <div class="project-title">InfinityMusic</div>
                             <span class="project-category"><svg><use href="#icon-software"/></svg> Software</span>
                         </div>
-                        <p class="project-desc" data-i18n="infinitymusic_desc">AI-driven music generation and exploration platform for creating and discovering endless audio compositions.</p>
+                        <p class="project-desc" data-i18n="infinitymusic_desc">Automated generation of ambient music for YouTube: exploration of styles and atmospheres in a fully automated pipeline.</p>
                         <ul class="project-features">
-                            <li data-i18n="infinitymusic_feat1">AI-driven music generation</li>
-                            <li data-i18n="infinitymusic_feat2">Audio composition exploration</li>
-                            <li data-i18n="infinitymusic_feat3">Endless playlist creation</li>
+                            <li data-i18n="infinitymusic_feat1">Thematic music generation</li>
+                            <li data-i18n="infinitymusic_feat2">Image and video generation</li>
+                            <li data-i18n="infinitymusic_feat3">Automated pipeline end-to-end</li>
                         </ul>
                         <div class="project-tags">
                             <span class="project-tag"><svg><use href="#icon-lock"/></svg> <span data-i18n="private_repo">Private repository</span></span>
@@ -630,11 +650,10 @@
                             <div class="project-title">Qwen3 TTS Server</div>
                             <span class="project-category"><svg><use href="#icon-backend"/></svg> Back-end</span>
                         </div>
-                        <p class="project-desc" data-i18n="qwen3server_desc">Self-hosted text-to-speech server powered by the Qwen3-TTS model, featuring voice training capabilities and GPU optimization for fast inference.</p>
+                        <p class="project-desc" data-i18n="qwen3server_desc">Small self-hosted text-to-speech server powered by Qwen3-TTS.</p>
                         <ul class="project-features">
                             <li data-i18n="qwen3server_feat1">Self-hosted Qwen3-TTS inference</li>
                             <li data-i18n="qwen3server_feat2">Custom voice training</li>
-                            <li data-i18n="qwen3server_feat3">GPU-optimized serving</li>
                         </ul>
                         <div class="project-tags">
                             <span class="project-tag"><a href="https://github.com/rblaurent/axlcompute-qwen3-tts-server" target="_blank" rel="noopener"><svg><use href="#icon-github"/></svg> <span data-i18n="view_github">View on GitHub</span></a></span>
@@ -651,7 +670,7 @@
                             <div class="project-title">Qwen3 TTS Streaming</div>
                             <span class="project-category"><svg><use href="#icon-backend"/></svg> Back-end</span>
                         </div>
-                        <p class="project-desc" data-i18n="qwen3stream_desc">Real-time streaming text-to-speech companion, delivering low-latency audio output for seamless conversational applications.</p>
+                        <p class="project-desc" data-i18n="qwen3stream_desc">Minor fork of Qwen3 TTS to support small chunk inference and streaming.</p>
                         <ul class="project-features">
                             <li data-i18n="qwen3stream_feat1">Low-latency streaming audio</li>
                             <li data-i18n="qwen3stream_feat2">Real-time text-to-speech</li>
@@ -676,11 +695,9 @@
                             <div class="project-title">Resume</div>
                             <span class="project-category"><svg><use href="#icon-web"/></svg> Web</span>
                         </div>
-                        <p class="project-desc" data-i18n="resume_desc">This very site — a single-file bilingual resume with dark-themed portfolio, built entirely with Claude Code.</p>
+                        <p class="project-desc" data-i18n="resume_desc">This very site to share my curriculum vitae and portfolio of side projects.</p>
                         <ul class="project-features">
                             <li data-i18n="resume_feat1">Bilingual EN/FR with auto-detection</li>
-                            <li data-i18n="resume_feat2">Dark-themed portfolio page</li>
-                            <li data-i18n="resume_feat3">Single-file architecture</li>
                         </ul>
                         <div class="project-tags">
                             <span class="project-tag"><a href="https://github.com/rblaurent/resume" target="_blank" rel="noopener"><svg><use href="#icon-github"/></svg> <span data-i18n="view_github">View on GitHub</span></a></span>
@@ -688,6 +705,16 @@
                             <span class="project-tag">CSS</span>
                             <span class="project-tag">JavaScript</span>
                         </div>
+                    </div>
+                </div>
+
+                <!-- 11. Older projects -->
+                <div class="project-card project-card-compact project-card-subtle">
+                    <div class="project-content">
+                        <div class="project-title-row">
+                            <div class="project-title" data-i18n="older_title">And many older side stories</div>
+                        </div>
+                        <p class="project-desc" data-i18n="older_desc">Things that came before the age of AI, from Adobe Flash apps when it was cool to Three.js media-rich gaming community websites that have since had their run.</p>
                     </div>
                 </div>
             </div>
@@ -710,35 +737,35 @@ const translations = {
         side_projects: "Portfolio",
         portfolio_summary: "A collection of personal projects I build on evenings and weekends \u2014 exploring AI, real-time audio, and creative tools. These are playgrounds where I experiment with new ideas and ship things for fun.",
         view_github: "View on GitHub",
-        axl_desc: "AI gaming companion with Discord voice integration, Claude vision for screen analysis, and ElevenLabs text-to-speech for natural conversation.",
-        qwen3server_desc: "Self-hosted text-to-speech server powered by the Qwen3-TTS model, featuring voice training capabilities and GPU optimization for fast inference.",
-        qwen3stream_desc: "Real-time streaming text-to-speech companion, delivering low-latency audio output for seamless conversational applications.",
-        vynil_desc: "A Spotify wrapper web app providing a refined listening experience with a clean, modern interface.",
-        claudeciv_desc: "An AI agent that plays Civilization autonomously using Claude's reasoning and vision capabilities to make strategic decisions.",
-        redcompute_desc: "GPU compute infrastructure and orchestration tooling for self-hosted AI model serving and training workloads.",
-        redstories_desc: "Multi-AI roleplay stories chat app where multiple AI characters interact in collaborative narrative experiences.",
-        infinitymusic_desc: "AI-driven music generation and exploration platform for creating and discovering endless audio compositions.",
-        resume_desc: "This very site — a single-file bilingual resume with dark-themed portfolio, built entirely with Claude Code.",
+        axl_desc: "AI gaming companion with Discord integration, using AI agents to understand a multiplayer gaming session, generate text-to-speech and interact with players.",
+        qwen3server_desc: "Small self-hosted text-to-speech server powered by Qwen3-TTS.",
+        qwen3stream_desc: "Minor fork of Qwen3 TTS to support small chunk inference and streaming.",
+        vynil_desc: "A Spotify wrapper web app providing a refined listening experience with emphasis on going back into the full-album listening experience.",
+        claudeciv_desc: "AI streamer that plays Civilization autonomously and interacts with Twitch chat.",
+        redcompute_desc: "AI inference compute infrastructure and orchestration tooling for dispatching AI model workloads across local CPU/GPU, cloud GPUs and APIs. Used to power all my other projects.",
+        redstories_desc: "Tabletop Roleplaying Games multiplayer chat with multiple AI characters for narration and NPCs.",
+        infinitymusic_desc: "Automated generation of ambient music for YouTube: exploration of styles and atmospheres in a fully automated pipeline.",
+        resume_desc: "This very site to share my curriculum vitae and portfolio of side projects.",
         private_repo: "Private repository",
-        axl_feat1: "Discord voice chat integration",
-        axl_feat2: "Claude vision screen analysis",
-        axl_feat3: "ElevenLabs TTS voice output",
-        axl_feat4: "Real-time game awareness",
-        claudeciv_feat1: "Autonomous gameplay via Claude reasoning",
-        claudeciv_feat2: "Screenshot-based vision input",
-        claudeciv_feat3: "Strategic decision making",
+        axl_feat1: "Multiple agents orchestration",
+        axl_feat2: "Low-latency inference and TTS",
+        axl_feat3: "Discord integration and game overlay",
+        claudeciv_feat1: "Multiple agents orchestration",
+        claudeciv_feat2: "Adaptive music generation",
+        claudeciv_feat3: "Adaptive image and video generation",
+        claudeciv_feat4: "Twitch live interaction",
         redcompute_feat1: "GPU job scheduling & orchestration",
         redcompute_feat2: "Docker-based model serving",
-        redcompute_feat3: "CUDA workload management",
-        redstories_feat1: "Multi-character AI conversations",
-        redstories_feat2: "Collaborative storytelling",
-        redstories_feat3: "Real-time chat interface",
+        redcompute_feat3: "Bridge between local GPU, Cloud GPUs and Cloud APIs",
+        redstories_feat1: "Real-time chat",
+        redstories_feat2: "Local LLM inference",
+        redstories_feat3: "Orchestrators and individual NPC agents",
         vynil_feat1: "Spotify API integration",
         vynil_feat2: "Custom playback UI",
         vynil_feat3: "Clean, modern listening experience",
-        infinitymusic_feat1: "AI-driven music generation",
-        infinitymusic_feat2: "Audio composition exploration",
-        infinitymusic_feat3: "Endless playlist creation",
+        infinitymusic_feat1: "Thematic music generation",
+        infinitymusic_feat2: "Image and video generation",
+        infinitymusic_feat3: "Automated pipeline end-to-end",
         qwen3server_feat1: "Self-hosted Qwen3-TTS inference",
         qwen3server_feat2: "Custom voice training",
         qwen3server_feat3: "GPU-optimized serving",
@@ -747,42 +774,44 @@ const translations = {
         qwen3stream_feat3: "Chunked inference pipeline",
         resume_feat1: "Bilingual EN/FR with auto-detection",
         resume_feat2: "Dark-themed portfolio page",
-        resume_feat3: "Single-file architecture"
+        resume_feat3: "Single-file architecture",
+        older_title: "And many older side stories",
+        older_desc: "Things that came before the age of AI, from Adobe Flash apps when it was cool to Three.js media-rich gaming community websites that have since had their run."
     },
     fr: {
         back_to_resume: "CV",
         side_projects: "Portfolio",
         portfolio_summary: "Une collection de projets personnels que je d\u00e9veloppe le soir et le week-end \u2014 explorant l\u2019IA, l\u2019audio temps r\u00e9el et les outils cr\u00e9atifs. Ce sont des terrains de jeu o\u00f9 j\u2019exp\u00e9rimente de nouvelles id\u00e9es et livre des choses pour le plaisir.",
         view_github: "Voir sur GitHub",
-        axl_desc: "Compagnon IA de jeu avec int\u00e9gration vocale Discord, vision Claude pour l\u2019analyse d\u2019\u00e9cran et synth\u00e8se vocale ElevenLabs pour une conversation naturelle.",
-        qwen3server_desc: "Serveur de synth\u00e8se vocale auto-h\u00e9berg\u00e9 bas\u00e9 sur le mod\u00e8le Qwen3-TTS, avec entra\u00eenement de voix et optimisation GPU pour une inf\u00e9rence rapide.",
-        qwen3stream_desc: "Compagnon de synth\u00e8se vocale en streaming temps r\u00e9el, offrant une sortie audio \u00e0 faible latence pour des applications conversationnelles fluides.",
-        vynil_desc: "Application web Spotify offrant une exp\u00e9rience d\u2019\u00e9coute raffin\u00e9e avec une interface moderne et \u00e9pur\u00e9e.",
-        claudeciv_desc: "Un agent IA qui joue \u00e0 Civilization de mani\u00e8re autonome en utilisant les capacit\u00e9s de raisonnement et de vision de Claude pour prendre des d\u00e9cisions strat\u00e9giques.",
-        redcompute_desc: "Infrastructure de calcul GPU et outils d\u2019orchestration pour l\u2019h\u00e9bergement et l\u2019entra\u00eenement de mod\u00e8les IA en auto-h\u00e9berg\u00e9.",
-        redstories_desc: "Application de chat multi-IA o\u00f9 plusieurs personnages IA interagissent dans des exp\u00e9riences narratives collaboratives.",
-        infinitymusic_desc: "Plateforme de génération et d\u2019exploration musicale par IA pour créer et découvrir des compositions audio infinies.",
-        resume_desc: "Ce site même — un CV bilingue en fichier unique avec portfolio sombre, entièrement construit avec Claude Code.",
+        axl_desc: "Compagnon IA de jeu avec intégration Discord, utilisant des agents IA pour comprendre une session de jeu multijoueur, générer de la synthèse vocale et interagir avec les joueurs.",
+        qwen3server_desc: "Petit serveur de synthèse vocale auto-hébergé basé sur Qwen3-TTS.",
+        qwen3stream_desc: "Fork mineur de Qwen3 TTS pour supporter l'inférence par petits morceaux et le streaming.",
+        vynil_desc: "Application web Spotify offrant une expérience d'écoute raffinée avec l'accent sur le retour à l'écoute d'albums complets.",
+        claudeciv_desc: "Streamer IA qui joue à Civilization de manière autonome et interagit avec le chat Twitch.",
+        redcompute_desc: "Infrastructure de calcul et d'orchestration pour distribuer les charges de travail de modèles IA entre CPU/GPU local, GPU cloud et API. Utilisé pour alimenter tous mes autres projets.",
+        redstories_desc: "Chat multijoueur de jeux de rôle sur table avec plusieurs personnages IA pour la narration et les PNJ.",
+        infinitymusic_desc: "Génération automatisée de musique d'ambiance pour YouTube : exploration de styles et d'atmosphères dans un pipeline entièrement automatisé.",
+        resume_desc: "Ce site même pour partager mon curriculum vitae et mon portfolio de projets personnels.",
         private_repo: "Dépôt privé",
-        axl_feat1: "Intégration vocale Discord",
-        axl_feat2: "Analyse d'écran par vision Claude",
-        axl_feat3: "Sortie vocale ElevenLabs TTS",
-        axl_feat4: "Conscience du jeu en temps réel",
-        claudeciv_feat1: "Jeu autonome via raisonnement Claude",
-        claudeciv_feat2: "Entrée visuelle par captures d'écran",
-        claudeciv_feat3: "Prise de décisions stratégiques",
+        axl_feat1: "Orchestration multi-agents",
+        axl_feat2: "Inférence et TTS à faible latence",
+        axl_feat3: "Intégration Discord et overlay de jeu",
+        claudeciv_feat1: "Orchestration multi-agents",
+        claudeciv_feat2: "Génération musicale adaptative",
+        claudeciv_feat3: "Génération d'images et vidéos adaptative",
+        claudeciv_feat4: "Interaction live Twitch",
         redcompute_feat1: "Planification et orchestration de tâches GPU",
         redcompute_feat2: "Déploiement de modèles via Docker",
-        redcompute_feat3: "Gestion des charges CUDA",
-        redstories_feat1: "Conversations IA multi-personnages",
-        redstories_feat2: "Narration collaborative",
-        redstories_feat3: "Interface de chat en temps réel",
+        redcompute_feat3: "Passerelle entre GPU local, GPU Cloud et API Cloud",
+        redstories_feat1: "Chat en temps réel",
+        redstories_feat2: "Inférence LLM locale",
+        redstories_feat3: "Orchestrateurs et agents PNJ individuels",
         vynil_feat1: "Intégration API Spotify",
         vynil_feat2: "Interface de lecture personnalisée",
         vynil_feat3: "Expérience d'écoute moderne et épurée",
-        infinitymusic_feat1: "Génération musicale par IA",
-        infinitymusic_feat2: "Exploration de compositions audio",
-        infinitymusic_feat3: "Création de playlists infinies",
+        infinitymusic_feat1: "Génération musicale thématique",
+        infinitymusic_feat2: "Génération d'images et de vidéos",
+        infinitymusic_feat3: "Pipeline automatisé de bout en bout",
         qwen3server_feat1: "Inférence Qwen3-TTS auto-hébergée",
         qwen3server_feat2: "Entraînement de voix personnalisé",
         qwen3server_feat3: "Service optimisé GPU",
@@ -791,7 +820,9 @@ const translations = {
         qwen3stream_feat3: "Pipeline d'inférence par morceaux",
         resume_feat1: "Bilingue EN/FR avec détection auto",
         resume_feat2: "Page portfolio thème sombre",
-        resume_feat3: "Architecture en fichier unique"
+        resume_feat3: "Architecture en fichier unique",
+        older_title: "Et bien d'autres histoires plus anciennes",
+        older_desc: "Des projets d'avant l'ère de l'IA, des applications Adobe Flash quand c'était cool aux sites communautaires de jeux en Three.js riches en médias, qui ont depuis vécu leur belle époque."
     }
 };
 initLang();
