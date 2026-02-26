@@ -472,42 +472,11 @@
             </header>
 
             <section>
-                <p class="summary" data-i18n="portfolio_summary">A collection of personal projects I build on evenings and weekends — exploring AI, real-time audio, and creative tools. These are playgrounds where I experiment with new ideas and ship things for fun.</p>
+                <p class="summary" data-i18n="portfolio_summary">Personal projects exploring applied AI — from multi-agent orchestration to real-time inference infrastructure. Built end-to-end on evenings and weekends.</p>
             </section>
 
             <div class="projects-grid">
-                <!-- 1. Axl (Product) -->
-                <div class="project-card">
-                    <div class="project-image-wrap">
-                        <img src="images/axl.jpg" alt="Axl" class="project-image" loading="lazy">
-                    </div>
-                    <div class="project-content">
-                        <div class="project-title-row">
-                            <div class="project-title">Axl</div>
-                            <span class="project-category"><svg><use href="#icon-software"/></svg> Software</span>
-                        </div>
-                        <p class="project-desc" data-i18n="axl_desc">AI gaming companion with Discord integration, using AI agents to understand a multiplayer gaming session, generate text-to-speech and interact with players.</p>
-                        <ul class="project-features">
-                            <li data-i18n="axl_feat1">Multiple agents orchestration</li>
-                            <li data-i18n="axl_feat2">Low-latency inference and TTS</li>
-                            <li data-i18n="axl_feat3">Discord integration and game overlay</li>
-                        </ul>
-                        <div class="project-tags">
-                            <span class="project-tag"><svg><use href="#icon-lock"/></svg> <span data-i18n="private_repo">Private repository</span></span>
-                            <span class="project-tag">.NET</span>
-                            <span class="project-tag">WPF</span>
-                            <span class="project-tag">Discord</span>
-                            <span class="project-tag">MCP</span>
-                            <span class="project-tag">ACP</span>
-                            <span class="project-tag">LLMs</span>
-                            <span class="project-tag">TTS</span>
-                            <span class="project-tag">STT</span>
-                            <span class="project-tag">ComfyUI</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 2. Claude Plays Civilization (Product, Private) -->
+                <!-- 1. Claude Plays Civilization (Product, Private) -->
                 <div class="project-card">
                     <div class="project-image-wrap">
                         <img src="images/claudeplayscivilization.png" alt="Claude Plays Civilization" class="project-image" loading="lazy">
@@ -534,6 +503,37 @@
                             <span class="project-tag">MCP</span>
                             <span class="project-tag">ACP</span>
                             <span class="project-tag">Twitch</span>
+                            <span class="project-tag">ComfyUI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Axl - Gaming Companion (Product) -->
+                <div class="project-card">
+                    <div class="project-image-wrap">
+                        <img src="images/axl.jpg" alt="Axl - Gaming Companion" class="project-image" loading="lazy">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-title-row">
+                            <div class="project-title">Axl - Gaming Companion</div>
+                            <span class="project-category"><svg><use href="#icon-software"/></svg> Software</span>
+                        </div>
+                        <p class="project-desc" data-i18n="axl_desc">AI gaming companion with Discord integration, using AI agents to understand a multiplayer gaming session, generate text-to-speech and interact with players.</p>
+                        <ul class="project-features">
+                            <li data-i18n="axl_feat1">Multiple agents orchestration</li>
+                            <li data-i18n="axl_feat2">Low-latency inference and TTS</li>
+                            <li data-i18n="axl_feat3">Discord integration and game overlay</li>
+                        </ul>
+                        <div class="project-tags">
+                            <span class="project-tag"><svg><use href="#icon-lock"/></svg> <span data-i18n="private_repo">Private repository</span></span>
+                            <span class="project-tag">.NET</span>
+                            <span class="project-tag">WPF</span>
+                            <span class="project-tag">Discord</span>
+                            <span class="project-tag">MCP</span>
+                            <span class="project-tag">ACP</span>
+                            <span class="project-tag">LLMs</span>
+                            <span class="project-tag">TTS</span>
+                            <span class="project-tag">STT</span>
                             <span class="project-tag">ComfyUI</span>
                         </div>
                     </div>
@@ -735,7 +735,7 @@ const translations = {
     en: {
         back_to_resume: "Resume",
         side_projects: "Portfolio",
-        portfolio_summary: "A collection of personal projects I build on evenings and weekends \u2014 exploring AI, real-time audio, and creative tools. These are playgrounds where I experiment with new ideas and ship things for fun.",
+        portfolio_summary: "Personal projects exploring applied AI \u2014 from multi-agent orchestration to real-time inference infrastructure. Built end-to-end on evenings and weekends.",
         view_github: "View on GitHub",
         axl_desc: "AI gaming companion with Discord integration, using AI agents to understand a multiplayer gaming session, generate text-to-speech and interact with players.",
         qwen3server_desc: "Small self-hosted text-to-speech server powered by Qwen3-TTS.",
@@ -781,7 +781,7 @@ const translations = {
     fr: {
         back_to_resume: "CV",
         side_projects: "Portfolio",
-        portfolio_summary: "Une collection de projets personnels que je d\u00e9veloppe le soir et le week-end \u2014 explorant l\u2019IA, l\u2019audio temps r\u00e9el et les outils cr\u00e9atifs. Ce sont des terrains de jeu o\u00f9 j\u2019exp\u00e9rimente de nouvelles id\u00e9es et livre des choses pour le plaisir.",
+        portfolio_summary: "Projets personnels explorant l'IA appliquée — de l'orchestration multi-agents à l'infrastructure d'inférence temps réel. Construits de bout en bout le soir et le week-end.",
         view_github: "Voir sur GitHub",
         axl_desc: "Compagnon IA de jeu avec intégration Discord, utilisant des agents IA pour comprendre une session de jeu multijoueur, générer de la synthèse vocale et interagir avec les joueurs.",
         qwen3server_desc: "Petit serveur de synthèse vocale auto-hébergé basé sur Qwen3-TTS.",
