@@ -46,7 +46,7 @@
             font-size: 12px;
             font-weight: 500;
             width: 64px;
-            height: 92px;
+            height: 120px;
             padding: 14px 10px;
             border-radius: 0 6px 6px 0;
             display: flex;
@@ -455,7 +455,7 @@
                 <img src="profile.jpg" alt="Laurent Bécherel" class="profile-pic">
                 <div class="header-content">
                     <h1>Laurent Bécherel</h1>
-                    <div class="title" data-i18n="side_projects">Portfolio</div>
+                    <div class="title" data-i18n="side_projects">Side Projects</div>
                     <div class="contact-header">
                         <a href="mailto:becherel.laurent@gmail.com" class="contact-icon" title="becherel.laurent@gmail.com">
                             <svg><use href="#icon-mail"/></svg>
@@ -695,7 +695,7 @@
                             <div class="project-title">Resume</div>
                             <span class="project-category"><svg><use href="#icon-web"/></svg> Web</span>
                         </div>
-                        <p class="project-desc" data-i18n="resume_desc">This very site to share my curriculum vitae and portfolio of side projects.</p>
+                        <p class="project-desc" data-i18n="resume_desc">This very site to share my curriculum vitae and side projects.</p>
                         <ul class="project-features">
                             <li data-i18n="resume_feat1">Bilingual EN/FR with auto-detection</li>
                         </ul>
@@ -734,7 +734,7 @@
 const translations = {
     en: {
         back_to_resume: "Resume",
-        side_projects: "Portfolio",
+        side_projects: "Side Projects",
         portfolio_summary: "Personal projects exploring applied AI \u2014 from multi-agent orchestration to real-time inference infrastructure. Built end-to-end on evenings and weekends.",
         view_github: "View on GitHub",
         axl_desc: "AI gaming companion with Discord integration, using AI agents to understand a multiplayer gaming session, generate text-to-speech and interact with players.",
@@ -745,7 +745,7 @@ const translations = {
         redcompute_desc: "AI inference compute infrastructure and orchestration tooling for dispatching AI model workloads across local CPU/GPU, cloud GPUs and APIs. Used to power all my other projects.",
         redstories_desc: "Tabletop Roleplaying Games multiplayer chat with multiple AI characters for narration and NPCs.",
         infinitymusic_desc: "Automated generation of ambient music for YouTube: exploration of styles and atmospheres in a fully automated pipeline.",
-        resume_desc: "This very site to share my curriculum vitae and portfolio of side projects.",
+        resume_desc: "This very site to share my curriculum vitae and side projects.",
         private_repo: "Private repository",
         axl_feat1: "Multiple agents orchestration",
         axl_feat2: "Low-latency inference and TTS",
@@ -773,14 +773,14 @@ const translations = {
         qwen3stream_feat2: "Real-time text-to-speech",
         qwen3stream_feat3: "Chunked inference pipeline",
         resume_feat1: "Bilingual EN/FR with auto-detection",
-        resume_feat2: "Dark-themed portfolio page",
+        resume_feat2: "Dark-themed side projects page",
         resume_feat3: "Single-file architecture",
         older_title: "And many older side stories",
         older_desc: "Things that came before the age of AI, from Adobe Flash apps when it was cool to Three.js media-rich gaming community websites that have since had their run."
     },
     fr: {
         back_to_resume: "CV",
-        side_projects: "Portfolio",
+        side_projects: "Projets Perso",
         portfolio_summary: "Projets personnels explorant l'IA appliquée — de l'orchestration multi-agents à l'infrastructure d'inférence temps réel. Construits de bout en bout le soir et le week-end.",
         view_github: "Voir sur GitHub",
         axl_desc: "Compagnon IA de jeu avec intégration Discord, utilisant des agents IA pour comprendre une session de jeu multijoueur, générer de la synthèse vocale et interagir avec les joueurs.",
@@ -791,7 +791,7 @@ const translations = {
         redcompute_desc: "Infrastructure de calcul et d'orchestration pour distribuer les charges de travail de modèles IA entre CPU/GPU local, GPU cloud et API. Utilisé pour alimenter tous mes autres projets.",
         redstories_desc: "Chat multijoueur de jeux de rôle sur table avec plusieurs personnages IA pour la narration et les PNJ.",
         infinitymusic_desc: "Génération automatisée de musique d'ambiance pour YouTube : exploration de styles et d'atmosphères dans un pipeline entièrement automatisé.",
-        resume_desc: "Ce site même pour partager mon curriculum vitae et mon portfolio de projets personnels.",
+        resume_desc: "Ce site même pour partager mon curriculum vitae et mes projets personnels.",
         private_repo: "Dépôt privé",
         axl_feat1: "Orchestration multi-agents",
         axl_feat2: "Inférence et TTS à faible latence",
@@ -819,7 +819,7 @@ const translations = {
         qwen3stream_feat2: "Synthèse vocale en temps réel",
         qwen3stream_feat3: "Pipeline d'inférence par morceaux",
         resume_feat1: "Bilingue EN/FR avec détection auto",
-        resume_feat2: "Page portfolio thème sombre",
+        resume_feat2: "Page projets perso thème sombre",
         resume_feat3: "Architecture en fichier unique",
         older_title: "Et bien d'autres histoires plus anciennes",
         older_desc: "Des projets d'avant l'ère de l'IA, des applications Adobe Flash quand c'était cool aux sites communautaires de jeux en Three.js riches en médias, qui ont depuis vécu leur belle époque."
