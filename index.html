@@ -155,6 +155,39 @@
             height: 14px;
         }
 
+        .lang-toggle {
+            display: inline-flex;
+            align-items: center;
+            height: 26px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            overflow: hidden;
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .lang-toggle span {
+            padding: 0 8px;
+            height: 100%;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+            color: #999;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .lang-toggle span.active {
+            background: #2D5A7B;
+            color: #fff;
+            cursor: default;
+        }
+
+        .lang-toggle span:not(.active):hover {
+            background: #f5f9fc;
+            color: #2D5A7B;
+        }
+
         /* Sections */
         section {
             margin-bottom: 40px;
@@ -350,7 +383,8 @@
                 display: inline;
             }
 
-            .download-btn {
+            .download-btn,
+            .lang-toggle {
                 display: none;
             }
 
@@ -378,7 +412,7 @@
                 <img src="profile.jpg" alt="Laurent Bécherel" class="profile-pic">
                 <div class="header-content">
                     <h1>Laurent Bécherel</h1>
-                    <div class="title">Software Engineer</div>
+                    <div class="title" data-i18n="title">Software Engineer</div>
                     <div class="contact-header">
                         <a href="mailto:becherel.laurent@gmail.com" class="contact-icon" title="becherel.laurent@gmail.com">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M61.4 64C27.5 64 0 91.5 0 125.4 0 126.3 0 127.1 .1 128L0 128 0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-256-.1 0c0-.9 .1-1.7 .1-2.6 0-33.9-27.5-61.4-61.4-61.4L61.4 64zM464 192.3L464 384c0 8.8-7.2 16-16 16L64 400c-8.8 0-16-7.2-16-16l0-191.7 154.8 117.4c31.4 23.9 74.9 23.9 106.4 0L464 192.3zM48 125.4C48 118 54 112 61.4 112l389.2 0c7.4 0 13.4 6 13.4 13.4 0 4.2-2 8.2-5.3 10.7L280.2 271.5c-14.3 10.8-34.1 10.8-48.4 0L53.3 136.1c-3.3-2.5-5.3-6.5-5.3-10.7z"/></svg>
@@ -392,39 +426,43 @@
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M248 24c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 246.1-63-63c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9L207 345c9.4 9.4 24.6 9.4 33.9 0L345 241c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-63 63 0-246.1zM66.2 272L64 272c-35.3 0-64 28.7-64 64l0 80c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-80c0-35.3-28.7-64-64-64l-2.2 0-48 48 50.2 0c8.8 0 16 7.2 16 16l0 80c0 8.8-7.2 16-16 16L64 432c-8.8 0-16-7.2-16-16l0-80c0-8.8 7.2-16 16-16l50.2 0-48-48zM368 376a24 24 0 1 0 -48 0 24 24 0 1 0 48 0z"/></svg>
                             PDF
                         </a>
+                        <span class="lang-toggle" id="lang-toggle">
+                            <span data-lang="en" class="active" onclick="setLang('en')">EN</span>
+                            <span data-lang="fr" onclick="setLang('fr')">FR</span>
+                        </span>
                     </div>
                 </div>
             </header>
 
             <section>
-                <p class="summary">
+                <p class="summary" data-i18n="summary">
                     15 years building and shipping technology; always driven by a passion for crafting intuitive experiences that bring people closer to cutting-edge technology. Now focused on AI strategy and developer enablement, combining deep technical expertise with a love for teaching, advocacy, and making complex systems accessible. Native French speaker, fluent in English.
                 </p>
             </section>
 
             <section>
-                <h2>Experience</h2>
+                <h2 data-i18n="experience">Experience</h2>
 
                 <div class="job">
                     <div class="job-top">
                         <div class="company-logo" style="background-image: url('meta.svg')"></div>
                         <div class="job-info">
                             <div class="job-header">
-                                <h3>Senior Software Engineer</h3>
+                                <h3 data-i18n="meta_title">Senior Software Engineer</h3>
                             </div>
                             <div class="job-meta-line">
-                                <span class="job-meta"><span class="company">Meta</span> · Zurich, Switzerland</span>
-                                <span class="date">2022 — Present</span>
+                                <span class="job-meta"><span class="company">Meta</span> · <span data-i18n="meta_location">Zurich, Switzerland</span></span>
+                                <span class="date">2022 — <span data-i18n="present">Present</span></span>
                             </div>
                         </div>
                     </div>
                     <ul>
-                        <li>Defining AI strategy for builder tools across Meta XR SDK, driving alignment across engineering, product, and design stakeholder</li>
-                        <li>Architected a framework for the developer tools suite to leverage AI, unlocking new workflows for creators</li>
-                        <li>Driving ease-of-use and discoverability improvements for XR features in Meta XR SDK, partnering across 1P and 3P teams to reach 50K+ developers</li>
-                        <li>Designing developer onboarding solutions to reduce friction and accelerate adoption across the XR SDK</li>
-                        <li>Building telemetry frameworks to enable data-driven decisions across engine integrations</li>
-                        <li>Advocating for Developer Tools at GDC, Meta Connect, etc. through tech talks, demos and workshops — engaging directly with developer and partner audiences</li>
+                        <li data-i18n="meta_1">Defining AI strategy for builder tools across Meta XR SDK, driving alignment across engineering, product, and design stakeholder</li>
+                        <li data-i18n="meta_2">Architected a framework for the developer tools suite to leverage AI, unlocking new workflows for creators</li>
+                        <li data-i18n="meta_3">Driving ease-of-use and discoverability improvements for XR features in Meta XR SDK, partnering across 1P and 3P teams to reach 50K+ developers</li>
+                        <li data-i18n="meta_4">Designing developer onboarding solutions to reduce friction and accelerate adoption across the XR SDK</li>
+                        <li data-i18n="meta_5">Building telemetry frameworks to enable data-driven decisions across engine integrations</li>
+                        <li data-i18n="meta_6">Advocating for Developer Tools at GDC, Meta Connect, etc. through tech talks, demos and workshops — engaging directly with developer and partner audiences</li>
                     </ul>
                     <p class="skills">C++ · C# · Unity · Unreal · XR · Full Stack · Python · MCP · ACP · LLM · AI/ML</p>
                 </div>
@@ -434,18 +472,18 @@
                         <div class="company-logo" style="background-image: url('redbamboo.svg')"></div>
                         <div class="job-info">
                             <div class="job-header">
-                                <h3>Co-Founder</h3>
+                                <h3 data-i18n="rb_title">Co-Founder</h3>
                             </div>
                             <div class="job-meta-line">
-                                <span class="job-meta"><span class="company">RedBamboo Interactive</span> · Avignon, France</span>
+                                <span class="job-meta"><span class="company">RedBamboo Interactive</span> · <span data-i18n="rb_location">Avignon, France</span></span>
                                 <span class="date">2017 — 2022</span>
                             </div>
                         </div>
                     </div>
                     <ul>
-                        <li>RBP1 (Unreleased PC Title): Led production and developed gameplay, rendering, tools, and procedural generation systems</li>
-                        <li>RedLeaf (Development Tool): Created visual scripting and content management system adopted by third-party partners</li>
-                        <li>ISSAN (Aerospace Contract for Spaceable): Partnered with Spaceable to design and deliver technical PoC and simulation tools that de-risked the product vision, contributing to two successful fundraising rounds</li>
+                        <li data-i18n="rb_1">RBP1 (Unreleased PC Title): Led production and developed gameplay, rendering, tools, and procedural generation systems</li>
+                        <li data-i18n="rb_2">RedLeaf (Development Tool): Created visual scripting and content management system adopted by third-party partners</li>
+                        <li data-i18n="rb_3">ISSAN (Aerospace Contract for Spaceable): Partnered with Spaceable to design and deliver technical PoC and simulation tools that de-risked the product vision, contributing to two successful fundraising rounds</li>
                     </ul>
                     <p class="skills">C++ · C# · Unity · UX · Full Stack · Procedural Generation</p>
                 </div>
@@ -455,19 +493,19 @@
                         <div class="company-logo" style="background-image: url('codemasters.svg')"></div>
                         <div class="job-info">
                             <div class="job-header">
-                                <h3>Senior Programmer</h3>
+                                <h3 data-i18n="cm_title">Senior Programmer</h3>
                             </div>
                             <div class="job-meta-line">
-                                <span class="job-meta"><span class="company">Codemasters</span> · Birmingham, UK</span>
+                                <span class="job-meta"><span class="company">Codemasters</span> · <span data-i18n="cm_location">Birmingham, UK</span></span>
                                 <span class="date">2012 — 2017</span>
                             </div>
                         </div>
                     </div>
                     <ul>
-                        <li>Micro Machines World Series (Xbox One, PS4, Steam): Designed monetization and retention systems driving player engagement</li>
-                        <li>Micro Machines (iOS, Android): Built end-to-end monetization with data analytics integration, informing product decisions</li>
-                        <li>Toybox Turbos (X360, PS3, Steam): Developed gameplay and metagame systems</li>
-                        <li>F1 Race Stars (X360, PS3, Steam, iOS): Shipped gameplay and monetization systems</li>
+                        <li data-i18n="cm_1">Micro Machines World Series (Xbox One, PS4, Steam): Designed monetization and retention systems driving player engagement</li>
+                        <li data-i18n="cm_2">Micro Machines (iOS, Android): Built end-to-end monetization with data analytics integration, informing product decisions</li>
+                        <li data-i18n="cm_3">Toybox Turbos (X360, PS3, Steam): Developed gameplay and metagame systems</li>
+                        <li data-i18n="cm_4">F1 Race Stars (X360, PS3, Steam, iOS): Shipped gameplay and monetization systems</li>
                     </ul>
                     <p class="skills">C++ · C# · Unity · Analytics</p>
                 </div>
@@ -477,25 +515,25 @@
                         <div class="company-logo" style="background-image: url('ubisoft.svg')"></div>
                         <div class="job-info">
                             <div class="job-header">
-                                <h3>Gameplay Programmer</h3>
+                                <h3 data-i18n="ubi_title">Gameplay Programmer</h3>
                             </div>
                             <div class="job-meta-line">
-                                <span class="job-meta"><span class="company">Ubisoft</span> · Milan, Italy</span>
+                                <span class="job-meta"><span class="company">Ubisoft</span> · <span data-i18n="ubi_location">Milan, Italy</span></span>
                                 <span class="date">2010 — 2012</span>
                             </div>
                         </div>
                     </div>
                     <ul>
-                        <li>Raving Rabbids: Alive & Kicking (Xbox 360 Kinect): Leveraged Kinect capabilities for depth feed analysis, gesture recognition, and adaptive AI gameplay</li>
-                        <li>MotionSports (Xbox 360 Kinect): Architected save and player profile systems; ensured TCR compliance</li>
+                        <li data-i18n="ubi_1">Raving Rabbids: Alive & Kicking (Xbox 360 Kinect): Leveraged Kinect capabilities for depth feed analysis, gesture recognition, and adaptive AI gameplay</li>
+                        <li data-i18n="ubi_2">MotionSports (Xbox 360 Kinect): Architected save and player profile systems; ensured TCR compliance</li>
                     </ul>
                     <div class="job-sub">
                         <div class="job-sub-header">
-                            <span class="job-meta"><span class="company">Ubisoft</span> · Paris, France (Intern)</span>
+                            <span class="job-meta"><span class="company">Ubisoft</span> · <span data-i18n="ubi_intern_location">Paris, France (Intern)</span></span>
                             <span class="date">2009 — 2010</span>
                         </div>
                         <ul>
-                            <li>Red Steel 2 (Wii): Implemented save/checkpoint systems and menu controls; ensured Lotcheck compliance</li>
+                            <li data-i18n="ubi_3">Red Steel 2 (Wii): Implemented save/checkpoint systems and menu controls; ensured Lotcheck compliance</li>
                         </ul>
                     </div>
                     <p class="skills">C++ · Kinect · Wii</p>
@@ -503,7 +541,7 @@
             </section>
 
             <section>
-                <h2>Education</h2>
+                <h2 data-i18n="education">Education</h2>
                 <div class="education-item">
                     <div class="job-top">
                         <div class="company-logo" style="background-image: url('tsp.svg')"></div>
@@ -512,18 +550,120 @@
                                 <h3>Telecom SudParis</h3>
                             </div>
                             <div class="job-meta-line">
-                                <span class="job-meta"><span class="company">Institut Polytechnique de Paris</span> · Evry, France</span>
+                                <span class="job-meta"><span class="company">Institut Polytechnique de Paris</span> · <span data-i18n="edu_location">Evry, France</span></span>
                                 <span class="date">2006 — 2010</span>
                             </div>
                         </div>
                     </div>
                     <ul>
-                        <li>M.S. in Telecommunications Engineering, with coursework in management and software development</li>
+                        <li data-i18n="edu_1">M.S. in Telecommunications Engineering, with coursework in management and software development</li>
                     </ul>
                     <p class="skills">C++ · A.I. · Distributed Systems · Concurrent Programming · Probability · Project Management</p>
                 </div>
             </section>
         </div>
     </div>
+<script>
+const translations = {
+    en: {
+        title: "Software Engineer",
+        summary: "15 years building and shipping technology; always driven by a passion for crafting intuitive experiences that bring people closer to cutting-edge technology. Now focused on AI strategy and developer enablement, combining deep technical expertise with a love for teaching, advocacy, and making complex systems accessible. Native French speaker, fluent in English.",
+        experience: "Experience",
+        education: "Education",
+        present: "Present",
+        // Meta
+        meta_title: "Senior Software Engineer",
+        meta_location: "Zurich, Switzerland",
+        meta_1: "Defining AI strategy for builder tools across Meta XR SDK, driving alignment across engineering, product, and design stakeholder",
+        meta_2: "Architected a framework for the developer tools suite to leverage AI, unlocking new workflows for creators",
+        meta_3: "Driving ease-of-use and discoverability improvements for XR features in Meta XR SDK, partnering across 1P and 3P teams to reach 50K+ developers",
+        meta_4: "Designing developer onboarding solutions to reduce friction and accelerate adoption across the XR SDK",
+        meta_5: "Building telemetry frameworks to enable data-driven decisions across engine integrations",
+        meta_6: "Advocating for Developer Tools at GDC, Meta Connect, etc. through tech talks, demos and workshops \u2014 engaging directly with developer and partner audiences",
+        // RedBamboo
+        rb_title: "Co-Founder",
+        rb_location: "Avignon, France",
+        rb_1: "RBP1 (Unreleased PC Title): Led production and developed gameplay, rendering, tools, and procedural generation systems",
+        rb_2: "RedLeaf (Development Tool): Created visual scripting and content management system adopted by third-party partners",
+        rb_3: "ISSAN (Aerospace Contract for Spaceable): Partnered with Spaceable to design and deliver technical PoC and simulation tools that de-risked the product vision, contributing to two successful fundraising rounds",
+        // Codemasters
+        cm_title: "Senior Programmer",
+        cm_location: "Birmingham, UK",
+        cm_1: "Micro Machines World Series (Xbox One, PS4, Steam): Designed monetization and retention systems driving player engagement",
+        cm_2: "Micro Machines (iOS, Android): Built end-to-end monetization with data analytics integration, informing product decisions",
+        cm_3: "Toybox Turbos (X360, PS3, Steam): Developed gameplay and metagame systems",
+        cm_4: "F1 Race Stars (X360, PS3, Steam, iOS): Shipped gameplay and monetization systems",
+        // Ubisoft
+        ubi_title: "Gameplay Programmer",
+        ubi_location: "Milan, Italy",
+        ubi_1: "Raving Rabbids: Alive & Kicking (Xbox 360 Kinect): Leveraged Kinect capabilities for depth feed analysis, gesture recognition, and adaptive AI gameplay",
+        ubi_2: "MotionSports (Xbox 360 Kinect): Architected save and player profile systems; ensured TCR compliance",
+        ubi_intern_location: "Paris, France (Intern)",
+        ubi_3: "Red Steel 2 (Wii): Implemented save/checkpoint systems and menu controls; ensured Lotcheck compliance",
+        // Education
+        edu_location: "Evry, France",
+        edu_1: "M.S. in Telecommunications Engineering, with coursework in management and software development"
+    },
+    fr: {
+        title: "Ing\u00e9nieur Logiciel",
+        summary: "15 ans d\u2019exp\u00e9rience dans le d\u00e9veloppement et la livraison de produits technologiques\u00a0; toujours guid\u00e9 par la passion de cr\u00e9er des exp\u00e9riences intuitives qui rapprochent les utilisateurs des technologies de pointe. D\u00e9sormais focalis\u00e9 sur la strat\u00e9gie IA et l\u2019accompagnement des d\u00e9veloppeurs, alliant expertise technique approfondie et go\u00fbt pour l\u2019enseignement, l\u2019advocacy et la vulgarisation de syst\u00e8mes complexes. Fran\u00e7ais natif, anglais courant.",
+        experience: "Exp\u00e9rience",
+        education: "Formation",
+        present: "Aujourd\u2019hui",
+        // Meta
+        meta_title: "Ing\u00e9nieur Logiciel Senior",
+        meta_location: "Zurich, Suisse",
+        meta_1: "D\u00e9finition de la strat\u00e9gie IA pour les outils de cr\u00e9ation du Meta XR SDK, en alignant les \u00e9quipes d\u2019ing\u00e9nierie, produit et design",
+        meta_2: "Conception d\u2019un framework permettant \u00e0 la suite d\u2019outils d\u00e9veloppeur d\u2019exploiter l\u2019IA, ouvrant de nouveaux workflows pour les cr\u00e9ateurs",
+        meta_3: "Am\u00e9lioration de l\u2019ergonomie et de la d\u00e9couvrabilit\u00e9 des fonctionnalit\u00e9s XR dans le Meta XR SDK, en partenariat avec les \u00e9quipes 1P et 3P pour atteindre plus de 50K d\u00e9veloppeurs",
+        meta_4: "Conception de solutions d\u2019onboarding d\u00e9veloppeur pour r\u00e9duire les frictions et acc\u00e9l\u00e9rer l\u2019adoption du XR SDK",
+        meta_5: "D\u00e9veloppement de frameworks de t\u00e9l\u00e9m\u00e9trie pour des d\u00e9cisions bas\u00e9es sur les donn\u00e9es \u00e0 travers les int\u00e9grations moteur",
+        meta_6: "Promotion des outils d\u00e9veloppeur lors de la GDC, Meta Connect, etc. via des conf\u00e9rences, d\u00e9mos et ateliers \u2014 interaction directe avec les d\u00e9veloppeurs et partenaires",
+        // RedBamboo
+        rb_title: "Co-Fondateur",
+        rb_location: "Avignon, France",
+        rb_1: "RBP1 (Titre PC non publi\u00e9)\u00a0: Direction de la production et d\u00e9veloppement du gameplay, rendu, outils et syst\u00e8mes de g\u00e9n\u00e9ration proc\u00e9durale",
+        rb_2: "RedLeaf (Outil de d\u00e9veloppement)\u00a0: Cr\u00e9ation d\u2019un syst\u00e8me de scripting visuel et de gestion de contenu adopt\u00e9 par des partenaires tiers",
+        rb_3: "ISSAN (Contrat a\u00e9rospatial pour Spaceable)\u00a0: Partenariat avec Spaceable pour concevoir et livrer des PoC techniques et outils de simulation qui ont s\u00e9curis\u00e9 la vision produit, contribuant \u00e0 deux lev\u00e9es de fonds r\u00e9ussies",
+        // Codemasters
+        cm_title: "Programmeur Senior",
+        cm_location: "Birmingham, Royaume-Uni",
+        cm_1: "Micro Machines World Series (Xbox One, PS4, Steam)\u00a0: Conception de syst\u00e8mes de mon\u00e9tisation et de r\u00e9tention stimulant l\u2019engagement des joueurs",
+        cm_2: "Micro Machines (iOS, Android)\u00a0: D\u00e9veloppement complet de la mon\u00e9tisation avec int\u00e9gration d\u2019analytics, guidant les d\u00e9cisions produit",
+        cm_3: "Toybox Turbos (X360, PS3, Steam)\u00a0: D\u00e9veloppement des syst\u00e8mes de gameplay et de m\u00e9ta-jeu",
+        cm_4: "F1 Race Stars (X360, PS3, Steam, iOS)\u00a0: Livraison des syst\u00e8mes de gameplay et de mon\u00e9tisation",
+        // Ubisoft
+        ubi_title: "Programmeur Gameplay",
+        ubi_location: "Milan, Italie",
+        ubi_1: "Raving Rabbids: Alive & Kicking (Xbox 360 Kinect)\u00a0: Exploitation des capacit\u00e9s Kinect pour l\u2019analyse de flux de profondeur, la reconnaissance gestuelle et le gameplay IA adaptatif",
+        ubi_2: "MotionSports (Xbox 360 Kinect)\u00a0: Architecture des syst\u00e8mes de sauvegarde et de profils joueur\u00a0; conformit\u00e9 TCR",
+        ubi_intern_location: "Paris, France (Stagiaire)",
+        ubi_3: "Red Steel 2 (Wii)\u00a0: Impl\u00e9mentation des syst\u00e8mes de sauvegarde/checkpoint et des contr\u00f4les de menu\u00a0; conformit\u00e9 Lotcheck",
+        // Education
+        edu_location: "\u00c9vry, France",
+        edu_1: "Dipl\u00f4me d\u2019ing\u00e9nieur en T\u00e9l\u00e9communications, avec des cours en management et d\u00e9veloppement logiciel"
+    }
+};
+
+function setLang(lang) {
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+            el.textContent = translations[lang][key];
+        }
+    });
+    document.title = lang === 'fr' ? 'Laurent Becherel - CV' : 'Laurent Becherel - Resume';
+    document.documentElement.lang = lang;
+    document.querySelectorAll('#lang-toggle span').forEach(function(s) {
+        s.classList.toggle('active', s.getAttribute('data-lang') === lang);
+    });
+    localStorage.setItem('resume-lang', lang);
+}
+
+(function() {
+    var saved = localStorage.getItem('resume-lang');
+    if (saved && saved !== 'en') setLang(saved);
+})();
+</script>
 </body>
 </html>
